@@ -18,10 +18,10 @@ function newGame() {
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
             let tile = document.createElement('div');
-            tile.id = r.toString() + "-" + c.toString();
-            let num = board[r][c]; 
-            updateTile(tile, num);
-            document.getElementById("board").append(tile);
+            tile.id = r.toString() + "-" + c.toString();  // set the id of the tile
+            let num = board[r][c];  
+            updateTile(tile, num); 
+            document.getElementById("board").append(tile); // add the tile to the board
         }
     }
 
@@ -40,7 +40,7 @@ function resetBoard() {
 
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
-            let tile = document.getElementById(r.toString() + "-" + c.toString());
+            let tile = document.getElementById(r.toString() + "-" + c.toString()); // update the tile, html element
             let num = board[r][c];
             updateTile(tile, num);
         }
