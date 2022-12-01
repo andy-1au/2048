@@ -17,7 +17,6 @@ function newGame() {
 
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
-
             let tile = document.createElement('div');
             tile.id = r.toString() + "-" + c.toString();
             let num = board[r][c]; 
@@ -162,8 +161,6 @@ document.addEventListener("keyup", (e) => {
     }
     
 })
-
-
 
 function filterZero(row) {
     return row.filter(num => num != 0); // return a new array with all the non-zero numbers
