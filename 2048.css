@@ -1,10 +1,11 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    background-color: rgb(193, 171, 171);
 }
 
 hr {
-    width: 500px;
+    width: 400px;
 }
 
 #board {

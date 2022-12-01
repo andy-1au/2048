@@ -132,8 +132,11 @@ document.addEventListener("keyup", (e) => {
     }
     // Arrow Keys
     if (e.code == "ArrowLeft") {
-        slideLeft();
-        generateTile(); // generate a new tile after sliding
+        if (slideLeft()) {
+            generateTile();
+            console.log("generated tile");
+        }
+        // generateTile();
         if (isGameOver()) {
             alert("Game Over!");
         }
@@ -159,7 +162,6 @@ document.addEventListener("keyup", (e) => {
             alert("Game Over!");
         }
     }
-    
 })
 
 function filterZero(row) {
@@ -174,7 +176,7 @@ function slide(row) {
             row[i] *= 2; 
             row[i+1] = 0;
             score += row[i]; // update the score to what was doubled
-        }
+        } 
     }
 
     row = filterZero(row); // remove all the zeros again due to empty tiles
@@ -187,7 +189,18 @@ function slide(row) {
     return row;
 }
 
-function slideLeft() {
+function slideLeft() { 
+    // check if the board can slide left
+    let canSlide = false;
+
+    for (r = 0; r < rows; r++) {
+        let newRow = slide(board[r]); // slide the row
+        if (newRow.toString() != board[r].toString()) { //compare the new row to the old row
+            canSlide = true; 
+        }
+        // board[r] = newRow; //not sure if this is needed 
+    }
+
     for (let r = 0; r < rows; r++) {
         let row = board[r]; // get the row
         row = slide(row); // slide the row
@@ -199,9 +212,13 @@ function slideLeft() {
             updateTile(tile, num);
         }
     }
+    return canSlide;
 }
 
 function slideRight() {
+    
+
+
     for (let r = 0; r < rows; r++) {
         let row = board[r]; // get the row
         row.reverse(); // reverse the row, so we can slide left, this is the same as sliding right once we reverse it back
