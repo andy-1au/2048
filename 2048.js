@@ -251,4 +251,3 @@ function slideDown() {
     }
 }
 
-//this a test for github authentication
