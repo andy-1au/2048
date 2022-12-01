@@ -30,6 +30,54 @@ function newGame() {
     generateTile();
 }
 
+function resetBoard() {
+    score = 0;
+    board = [
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]
+    ]
+
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+            let tile = document.getElementById(r.toString() + "-" + c.toString());
+            let num = board[r][c];
+            updateTile(tile, num);
+        }
+    }
+
+    generateTile();
+    generateTile();
+}
+
+function isGameOver() {
+    // check if the board is full
+    if (!isFull()) {
+        return false;
+    }
+
+    // check if there are any adjacent tiles that are the same
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+            if (r > 0 && board[r][c] === board[r - 1][c]) { // check above
+                return false;
+            }
+            if (r < rows - 1 && board[r][c] === board[r + 1][c]) { // check below
+                return false;
+            }
+            if (c < cols - 1 && board[r][c] === board[r][c + 1]) { // check to the right 
+                return false;
+            }
+            if (c > 0 && board[r][c] === board[r][c - 1]) { // check to the left
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
 function isFull() {
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
@@ -46,7 +94,7 @@ function generateTile() {
         return; // if the board is full, don't generate a tile
     }
 
-    let found = false;
+    let found = false; // flag to check if we found a spot to generate a tile
 
     while (!found) {
         // generate a random row and column value 
@@ -75,28 +123,47 @@ function updateTile(tile, num) {
             tile.classList.add("x8192");
         }
     }
+    document.getElementById("score").innerText = score; // update the score
 }
 
 document.addEventListener("keyup", (e) => {
+    //if user clicks the new game button, start a new game
+    document.getElementById("reset").onclick = function() {
+        resetBoard();
+    }
     // Arrow Keys
     if (e.code == "ArrowLeft") {
         slideLeft();
         generateTile(); // generate a new tile after sliding
+        if (isGameOver()) {
+            alert("Game Over!");
+        }
     } 
     else if (e.code == "ArrowRight") {
         slideRight();
         generateTile();
+        if (isGameOver()) {
+            alert("Game Over!");
+        }
     } 
     else if (e.code == "ArrowUp") {
         slideUp();
         generateTile();
+        if (isGameOver()) {
+            alert("Game Over!");
+        }
     }
     else if (e.code == "ArrowDown") {
         slideDown();
         generateTile();
+        if (isGameOver()) {
+            alert("Game Over!");
+        }
     }
-    document.getElementById("score").innerText = score;
+    
 })
+
+
 
 function filterZero(row) {
     return row.filter(num => num != 0); // return a new array with all the non-zero numbers
