@@ -111,7 +111,18 @@ function generateTile() {
             board[r][c] = 2;
             let tile = document.getElementById(r.toString() + "-" + c.toString()); // update the tile, html element
             let num = board[r][c]; // get the number of the tile from the board
-            updateTile(tile, num); 
+            updateTile(tile, num);
+            tile.animate(
+              [
+                {
+                  transform: "scale(0)",
+                },
+                {
+                  transform: "scale(1)",
+                },
+              ],
+              100
+            );
             found = true;
         }
     }
