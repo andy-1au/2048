@@ -10,8 +10,8 @@ window.onload = function() {
 function newGame() {
     board = 
     [
-        [2, 4, 2, 0],
-        [0, 2, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0]
     ]
@@ -159,17 +159,21 @@ document.addEventListener("keyup", (e) => {
         }
     } 
     else if (e.code == "ArrowUp") {
-        // if (slideUp()) {
-        //     generateTile();
-        //     console.log("generated tile");
-        // }
-        slideUp();
-        generateTile();
+        if (slideUp()) {
+            generateTile();
+            console.log("generated tile");
+        }
+        // slideUp();
+        // generateTile();
         if (isGameOver()) {
             alert("Game Over!");
         }
     }
     else if (e.code == "ArrowDown") {
+        // if (slideDown()) {
+        //     generateTile();
+        //     console.log("generated tile");
+        // }
         slideDown();
         generateTile();
         if (isGameOver()) {
@@ -261,6 +265,20 @@ function slideRight() {
 }
 
 function slideUp() {
+    // check if the board can slide up
+    let canSlide = false;
+
+    for (c = 0; c < cols; c++) {
+        let col = [];
+        for (r = 0; r < rows; r++) {
+            col.push(board[r][c]); // get the column
+        }
+        let newCol = slide(col); // slide the column
+        if (newCol.toString() != col.toString()) { //compare the new column to the old column
+            canSlide = true; 
+        }
+    }
+    
     for (let c = 0; c < cols; c++) {
         let row = [board[0][c], board[1][c], board[2][c], board[3][c]]; // get the column
         row = slide(row); 
@@ -274,6 +292,8 @@ function slideUp() {
             updateTile(tile, num);
         }
     }
+
+    return canSlide;
 }
 
 function slideDown() {
