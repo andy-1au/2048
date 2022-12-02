@@ -1,5 +1,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
+    display: grid;
     text-align: center;
     background-color: rgb(193, 171, 171);
 }
@@ -8,7 +9,41 @@ hr {
     width: 400px;
 }
 
+#container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 10px;
+    grid-auto-flow: row;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+}
+#title {
+    grid-column: 1 / span 2;
+    grid-row: 1 / 2;
+}
+#reset {
+    grid-column: 1 / 2;
+    grid-row: 3 / 5;
+}
+#r0 {
+    /* gradient color background */
+    background: linear-gradient(90deg, rgb(180, 61, 61) 0%, rgb(242, 8, 8) 50%, rgb(255, 0, 0) 100%);
+}
+
 #board {
+    /* display this on the container grid in the second row and spans the left 2 columns */
+    grid-column: 2 / 2;
+    grid-row: 2 / 4;
+    background-color: rgb(255, 255, 255);
+    border: 5px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 10px;
+
     width: 400px;
     height: 400px;
 
@@ -20,7 +55,23 @@ hr {
     flex-wrap: wrap; 
 }
 
+#scoreTable {
+    grid-column: 1 / 2;
+    grid-row: 2 / 5;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 400px;
+    background-color: #cdc1b5;
+    border: 6px solid #bbada0;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
 #reset {
+    grid-column: 2 / 3;
+    grid-row: 3 / 5;
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -113,5 +164,4 @@ hr {
     background-color: #ff2020;
     color: #ffffff;
 }
-
 

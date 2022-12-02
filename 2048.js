@@ -143,9 +143,8 @@ document.addEventListener("keyup", (e) => {
         // generateTile();
         if (isGameOver()) {
             scores.push(score);
-            console.log("game over");
             scores = scores.filter((item, index) => scores.indexOf(item) === index);
-            // alert("Game Over!, Your score is: " + score);
+            alert("Game Over!, Your score is: " + score);
         }
     } 
     else if (e.code == "ArrowRight") {
@@ -153,9 +152,7 @@ document.addEventListener("keyup", (e) => {
         generateTile();
         if (isGameOver()) {
             scores.push(score);
-            console.log("game over");
             scores = scores.filter((item, index) => scores.indexOf(item) === index);
-            // alert("Game Over!, Your score is: " + score);
         }
     } 
     else if (e.code == "ArrowUp") {
@@ -163,9 +160,8 @@ document.addEventListener("keyup", (e) => {
         generateTile();
         if (isGameOver()) {
             scores.push(score);
-            console.log("game over");
             scores = scores.filter((item, index) => scores.indexOf(item) === index);
-            // alert("Game Over!, Your score is: " + score);
+            alert("Game Over!, Your score is: " + score);
         }
     }
     else if (e.code == "ArrowDown") {
@@ -173,10 +169,8 @@ document.addEventListener("keyup", (e) => {
         generateTile();
         if (isGameOver()) {
             scores.push(score);
-            console.log("game over");
-            //remove all duplicate scores in the array
             scores = scores.filter((item, index) => scores.indexOf(item) === index);
-            // alert("Game Over!, Your score is: " + score);
+            alert("Game Over!, Your score is: " + score);
         }
     }
 })
@@ -291,7 +285,6 @@ function slideDown() {
 }
 
 function SortList(n){
-    console.log("Scores: ", scores);
     let tmpScores =  scores.slice(0, scores.length); // copy the scores array to a temp array so we don't modify the original array
 
     tmpScores.push(n); // add the new score to the array
@@ -301,16 +294,9 @@ function SortList(n){
     // get the top 5 scores
     tmpScores = tmpScores.slice(0, 5); 
 
-    console.log("Sorted Scores: ", tmpScores);
-    
-    console.log("Sorted List Size: ", tmpScores.length);
-
     // update the list
     for (let i = 0; i < tmpScores.length; i++) {
-        //display the scores
         let row = document.getElementById("r" + i.toString());
-        //check if the score is a duplicate and if it is, remove it
-        //dont want to display duplicate scores
         row.innerHTML = tmpScores[i];
     }
 
