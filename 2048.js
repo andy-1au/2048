@@ -3,7 +3,7 @@ var score = 0;
 var rows = 4;
 var cols = 4;
 
-// test branch
+// andy branch
 
 window.onload = function() {
     newGame();
