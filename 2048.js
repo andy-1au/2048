@@ -26,7 +26,7 @@ function newGame() {
         }
     }
 
-    generateTile(); // generate a "2" tile twice to start the game
+    generateTile();
     generateTile();
 }
 

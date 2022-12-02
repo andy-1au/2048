@@ -37,52 +37,68 @@ hr {
 
 }
 
-.tile{
-    width: 90px; /* account for border 5px */
-    height: 90px; 
-    border: 5px solid #bbada0;
+/* .tile{ */
+    /* width: 90px;  */
+    /* height: 90px;  */
+    /* border: 5px solid #bbada0; */
 
-    font-size: 40px;
-    font-weight: bold;
+    /* font-size: 40px; */
+    /* font-weight: bold; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+/* }  */
+
+/* TEST START */
+
+.tile{
+    width: 90px; 
+    height: 90px; 
+    --border-size: 3px;
+    --border-angle: 0turn;
+    background-image: conic-gradient(
+      from var(--border-angle),
+      #213,
+      #112 50%,
+      #213
+    ),
+    conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
+
+    background-size: calc(100% - (var(--border-size) * 2))
+      calc(100% - (var(--border-size) * 2)),
+    cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    animation: bg-spin 3s linear infinite;
+
+    /* display the text over the background image */
+
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 40px;
+    font-weight: bold;
+    /* color: #f9f6f2; */
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;    
 }
 
-/* TEST START */
-.box {
-    --border-size: 3px;
-    --border-angle: 0turn;
-    width: 60vmin;
-    height: 50vmin;
-    background-image: conic-gradient(
-        from var(--border-angle),
-        #213,
-        #112 50%,
-        #213
-      ),
-      conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
-    background-size: calc(100% - (var(--border-size) * 2))
-        calc(100% - (var(--border-size) * 2)),
-      cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-  
-    animation: bg-spin 3s linear infinite;
-    @keyframes bg-spin {
-      to {
-        --border-angle: 1turn;
-      }
+@keyframes bg-spin {
+    to {
+      --border-angle: 1turn;
     }
-  }
-  
-  @property --border-angle {
+}
+
+@property --border-angle {
     syntax: "<angle>";
     inherits: true;
     initial-value: 0turn;
-  }
+}
 
 /* TEST END */
+
 
 .x2 {
     background-color: #eee4da;
