@@ -10,9 +10,9 @@ window.onload = function() {
 function newGame() {
     board = 
     [
-        [2, 0, 0, 2],
-        [0, 0, 2, 4],
-        [0, 0, 0, 2],
+        [2, 4, 2, 0],
+        [0, 2, 0, 0],
+        [0, 0, 0, 0],
         [0, 0, 0, 0]
     ]
 
@@ -154,18 +154,16 @@ document.addEventListener("keyup", (e) => {
             generateTile();
             console.log("generated tile");
         }
-        // slideRight();
-        // generateTile();
         if (isGameOver()) {
             alert("Game Over!");
         }
     } 
     else if (e.code == "ArrowUp") {
-        if (slideUp()) {
-            generateTile();
-            console.log("generated tile");
-        }
-        // slideUp();
+        // if (slideUp()) {
+        //     generateTile();
+        //     console.log("generated tile");
+        // }
+        slideUp();
         generateTile();
         if (isGameOver()) {
             alert("Game Over!");
@@ -263,23 +261,6 @@ function slideRight() {
 }
 
 function slideUp() {
-    // check if the board can slide up
-    let canSlide = false;
-
-    for (c = 0; c < cols; c++) {
-        let newCol = [];
-        for (r = 0; r < rows; r++) {
-            newCol.push(board[r][c]);
-        }   
-        newCol = slide(newCol);
-        if (newCol.toString() != board[r].toString()) { //compare the new row to the old row
-            canSlide = true;
-        }
-        // board[r] = newRow; //not sure if this is needed
-    }
-
-
-
     for (let c = 0; c < cols; c++) {
         let row = [board[0][c], board[1][c], board[2][c], board[3][c]]; // get the column
         row = slide(row); 
