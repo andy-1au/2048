@@ -8,12 +8,20 @@ window.onload = function() {
 }
 
 function newGame() {
-    board = [
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
+    board = 
+    [
+        [2, 0, 0, 2],
+        [0, 0, 2, 4],
+        [0, 0, 0, 2],
         [0, 0, 0, 0]
     ]
+
+    /* 
+    [0, 0, 0, 2],
+    [0, 0, 2, 4],
+    [0, 0, 0, 2],
+    [0, 0, 0, 0]
+    */
 
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
@@ -25,8 +33,8 @@ function newGame() {
         }
     }
 
-    generateTile(); // generate a "2" tile twice to start the game
-    generateTile();
+    // generateTile(); // generate a "2" tile twice to start the game
+    // generateTile();
 }
 
 function resetBoard() {
@@ -142,14 +150,22 @@ document.addEventListener("keyup", (e) => {
         }
     } 
     else if (e.code == "ArrowRight") {
-        slideRight();
-        generateTile();
+        if (slideRight()) {
+            generateTile();
+            console.log("generated tile");
+        }
+        // slideRight();
+        // generateTile();
         if (isGameOver()) {
             alert("Game Over!");
         }
     } 
     else if (e.code == "ArrowUp") {
-        slideUp();
+        if (slideUp()) {
+            generateTile();
+            console.log("generated tile");
+        }
+        // slideUp();
         generateTile();
         if (isGameOver()) {
             alert("Game Over!");
@@ -216,11 +232,22 @@ function slideLeft() {
 }
 
 function slideRight() {
-    
+    // check if the board can slide right
+    let canSlide = false;
 
+    for (r = 0; r < rows; r++) {
+        board[r].reverse(); // reverse the row
+        let newRow = slide(board[r]); // slide the row
+        if (newRow.toString() != board[r].toString()) { //compare the new row to the old row
+            canSlide = true; 
+        }
+        board[r] = newRow; // update the board with the new row
+        board[r].reverse(); //reverse the row back to normal
+    }
 
     for (let r = 0; r < rows; r++) {
         let row = board[r]; // get the row
+        //[0, 0, 2, 2] -> [2, 2, 0, 0] -> [4, 0, 0, 0] -> [0, 0, 0, 4]
         row.reverse(); // reverse the row, so we can slide left, this is the same as sliding right once we reverse it back
         row = slide(row); // slide the row
         row.reverse();  
@@ -232,9 +259,27 @@ function slideRight() {
             updateTile(tile, num);
         }
     }
+    return canSlide;
 }
 
 function slideUp() {
+    // check if the board can slide up
+    let canSlide = false;
+
+    for (c = 0; c < cols; c++) {
+        let newCol = [];
+        for (r = 0; r < rows; r++) {
+            newCol.push(board[r][c]);
+        }   
+        newCol = slide(newCol);
+        if (newCol.toString() != board[r].toString()) { //compare the new row to the old row
+            canSlide = true;
+        }
+        // board[r] = newRow; //not sure if this is needed
+    }
+
+
+
     for (let c = 0; c < cols; c++) {
         let row = [board[0][c], board[1][c], board[2][c], board[3][c]]; // get the column
         row = slide(row); 
