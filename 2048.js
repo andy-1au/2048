@@ -26,8 +26,8 @@ function newGame() {
         }
     }
 
-    // generateTile(); // generate a "2" tile twice to start the game
-    // generateTile();
+    generateTile(); // generate a "2" tile twice to start the game
+    generateTile();
 }
 
 function resetBoard() {
@@ -116,9 +116,9 @@ function updateTile(tile, num) {
     tile.classList.add("tile"); // add the tile class back
 
     if (num > 0) {
-        tile.innerText = num;
+        tile.innerText = num; // set the tile number
         if (num <= 4096) {
-            tile.classList.add("x"+num.toString());
+            tile.classList.add("x"+num.toString()); // add the tile class back
         } else {
             tile.classList.add("x8192");
         }
