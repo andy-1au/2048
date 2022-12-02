@@ -302,4 +302,3 @@ function SortList(n){
 
     return tmpScores;
 }
-
