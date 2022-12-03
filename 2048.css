@@ -42,7 +42,7 @@ hr {
 
 #board {
     /* display this on the container grid in the second row and spans the left 2 columns */
-    grid-column: 2 / 2;
+    grid-column: 1 / 2;
     grid-row: 2 / 4;
     background-color: rgb(255, 255, 255);
     border: 5px solid rgb(0, 0, 0);

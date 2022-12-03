@@ -1,9 +1,4 @@
-// Michael's Test Comment ~~~
-
-
-//Andy was here
-
-// I got your message, Andy.
+//Andy's Branch pulled from Main Branch
 
 var board;
 var scores = [0x0,0x0,0x0,0x0,0x0];
@@ -116,7 +111,7 @@ function generateTile() {
             let tile = document.getElementById(r.toString() + "-" + c.toString()); // update the tile, html element
             let num = board[r][c]; // get the number of the tile from the board
             updateTile(tile, num);
-            tile.animate(
+            tile.animate( // animate the tiles that pop in
               [
                 {
                   transform: "scale(0)",
@@ -125,7 +120,7 @@ function generateTile() {
                   transform: "scale(1)",
                 },
               ],
-              100
+              125 //switched from 100 t0 125
             );
             found = true;
         }
