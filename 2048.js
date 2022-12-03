@@ -1,4 +1,4 @@
-//Andy's Branch pulled from Main Branch
+//Main Branch
 
 // Audio Objects
 var whoosh = new Audio('audio/whoosh.mp3');
