@@ -165,13 +165,13 @@ hr {
 }
 
 .x1024 {
-    background-color: #D4B13D;
+    background-color: #dcb537;
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: #321b1b;
 }
 
 .x2048 {
-    background-color: #EBBC4F;
+    background-color: #fbb91e;
     /* background: linear-gradient(40deg, rgba(61, 56, 56, 0.5) 0%, rgb(232, 229, 229) 50%, rgba(97, 92, 92, 0.5) 100%); */
     color: #321b1b;
 }
