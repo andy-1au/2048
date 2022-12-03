@@ -29,6 +29,36 @@ var overPopup = false;
 window.onload = function() {
     newGame();
     SortList(scores);
+
+    // add event listeners here
+//if user clicks the new game button, start a new game
+document.getElementById("reset").onclick = function() {
+    resetBoard();
+    overPopup = false;
+
+    console.log("found");
+
+    //play the new game sound
+    playAudio(newgameSound);
+}
+
+// if user clicks the sound button, mute or unmute the sound
+document.getElementById("sound").onclick = function() {
+    if (whoosh.muted) {
+        playAudio(clickSound);
+        whoosh.muted = false;
+        gameoverSound.muted = false;
+        newgameSound.muted = false;
+        clickSound.muted = false;
+        document.getElementById("sound").innerText = "Sound: On";
+    } else {
+        whoosh.muted = true;
+        gameoverSound.muted = true;
+        newgameSound.muted = true;
+        clickSound.muted = true;
+        document.getElementById("sound").innerText = "Sound: Off";
+    }
+}
 }
 
 function newGame() {
@@ -168,36 +198,9 @@ function updateTile(tile, num) {
 }
 
 
+
 document.addEventListener("keyup", (e) => {
     // console.log(overPopup);
-    //if user clicks the new game button, start a new game
-    document.getElementById("reset").onclick = function() {
-        resetBoard();
-        overPopup = false;
-
-        console.log("found");
-
-        //play the new game sound
-        playAudio(newgameSound);
-    }
-    
-    // if user clicks the sound button, mute or unmute the sound
-    document.getElementById("sound").onclick = function() {
-        if (whoosh.muted) {
-            playAudio(clickSound);
-            whoosh.muted = false;
-            gameoverSound.muted = false;
-            newgameSound.muted = false;
-            clickSound.muted = false;
-            document.getElementById("sound").innerText = "Sound: On";
-        } else {
-            whoosh.muted = true;
-            gameoverSound.muted = true;
-            newgameSound.muted = true;
-            clickSound.muted = true;
-            document.getElementById("sound").innerText = "Sound: Off";
-        }
-    }
 
     // Arrow Keys
     if (e.code == "ArrowLeft") {
