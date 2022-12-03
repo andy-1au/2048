@@ -3,6 +3,9 @@ body {
     display: grid;
     text-align: center;
     background-color: rgb(193, 171, 171);
+
+    /* Test */
+    align-items: center;
 }
 
 hr {
@@ -49,6 +52,7 @@ hr {
 
     background-color: #cdc1b5;
     border: 6px solid #bbada0;
+    border-radius: 10px;
 
     margin: 0 auto; /* center the board */
     display: flex; 
@@ -82,23 +86,24 @@ hr {
     background-color: #8f7a66;
     color: #f9f6f2;
     border: 2px solid #776e65;
-    border-radius: 5px;
+    border-radius: 10px;
 
     cursor: pointer;
 
 }
 
-.tile{
-    width: 90px; /* account for border 5px */
+.tile { 
+    width: 90px; 
     height: 90px; 
-    border: 5px solid #bbada0;
+    border: 5px ridge rgba(66, 59, 59, 0.7);
+    border-radius: 10px;
 
     font-size: 40px;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+}  
 
 .x2 {
     background-color: #eee4da;

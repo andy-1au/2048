@@ -4,15 +4,16 @@ var score = 0;
 var rows = 4;
 var cols = 4;
 
-// load game with an ajax call
+// with high score table
 
-window.onload = function() { 
+window.onload = function() {
     newGame();
     SortList(scores);
 }
 
 function newGame() {
-    board = [
+    board = 
+    [
         [0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0],
@@ -29,7 +30,7 @@ function newGame() {
         }
     }
 
-    generateTile(); // generate a "2" tile twice to start the game
+    generateTile();
     generateTile();
 }
 
@@ -107,7 +108,18 @@ function generateTile() {
             board[r][c] = 2;
             let tile = document.getElementById(r.toString() + "-" + c.toString()); // update the tile, html element
             let num = board[r][c]; // get the number of the tile from the board
-            updateTile(tile, num); 
+            updateTile(tile, num);
+            tile.animate(
+              [
+                {
+                  transform: "scale(0)",
+                },
+                {
+                  transform: "scale(1)",
+                },
+              ],
+              100
+            );
             found = true;
         }
     }
@@ -118,14 +130,15 @@ function updateTile(tile, num) {
     tile.classList.value = ""; // clear the tile class
     tile.classList.add("tile"); // add the tile class back
 
-    if (num > 0) { 
-        tile.innerText = num;
+    if (num > 0) {
+        tile.innerText = num; // set the tile number
         if (num <= 4096) {
-            tile.classList.add("x"+num.toString());
+            tile.classList.add("x"+num.toString()); // add the tile class back
         } else {
             tile.classList.add("x8192");
         }
     }
+    
     document.getElementById("score").innerText = score; // update the score
 }
 
@@ -148,16 +161,22 @@ document.addEventListener("keyup", (e) => {
         }
     } 
     else if (e.code == "ArrowRight") {
-        slideRight();
-        generateTile();
+        if (slideRight()) {
+            generateTile();
+            console.log("generated tile");
+        }
         if (isGameOver()) {
             scores.push(score);
             scores = scores.filter((item, index) => scores.indexOf(item) === index);
         }
     } 
     else if (e.code == "ArrowUp") {
-        slideUp();
-        generateTile();
+        if (slideUp()) {
+            generateTile();
+            console.log("generated tile");
+        }
+        // slideUp();
+        // generateTile();
         if (isGameOver()) {
             scores.push(score);
             scores = scores.filter((item, index) => scores.indexOf(item) === index);
@@ -165,8 +184,12 @@ document.addEventListener("keyup", (e) => {
         }
     }
     else if (e.code == "ArrowDown") {
-        slideDown();
-        generateTile();
+        if (slideDown()) {
+            generateTile();
+            console.log("generated tile");
+        }
+        // slideDown();
+        // generateTile();
         if (isGameOver()) {
             scores.push(score);
             scores = scores.filter((item, index) => scores.indexOf(item) === index);
@@ -228,9 +251,22 @@ function slideLeft() {
 }
 
 function slideRight() {
-    
+    // check if the board can slide right
+    let canSlide = false;
+
+    for (r = 0; r < rows; r++) {
+        board[r].reverse(); // reverse the row
+        let newRow = slide(board[r]); // slide the row
+        if (newRow.toString() != board[r].toString()) { //compare the new row to the old row
+            canSlide = true; 
+        }
+        board[r] = newRow; // update the board with the new row
+        board[r].reverse(); //reverse the row back to normal
+    }
+
     for (let r = 0; r < rows; r++) {
         let row = board[r]; // get the row
+        //[0, 0, 2, 2] -> [2, 2, 0, 0] -> [4, 0, 0, 0] -> [0, 0, 0, 4]
         row.reverse(); // reverse the row, so we can slide left, this is the same as sliding right once we reverse it back
         row = slide(row); // slide the row
         row.reverse();
@@ -242,11 +278,28 @@ function slideRight() {
             updateTile(tile, num);
         }
     }
+    
     console.log("RIGHT " + score);
     list = SortList(score);
+
+    return canSlide;
 }
 
 function slideUp() {
+    // check if the board can slide up
+    let canSlide = false;
+
+    for (c = 0; c < cols; c++) {
+        let col = [];
+        for (r = 0; r < rows; r++) {
+            col.push(board[r][c]); // get the column
+        }
+        let newCol = slide(col); // slide the column
+        if (newCol.toString() != col.toString()) { //compare the new column to the old column
+            canSlide = true; 
+        }
+    }
+    
     for (let c = 0; c < cols; c++) {
         let row = [board[0][c], board[1][c], board[2][c], board[3][c]]; // get the column
         row = slide(row); 
@@ -262,9 +315,26 @@ function slideUp() {
     }
     //console.log(score);
     SortList(score);
+
+    return canSlide;
 }
 
 function slideDown() {
+    // check if the board can slide down
+    let canSlide = false;
+
+    for (c = 0; c < cols; c++) {
+        let col = [];
+        for (r = 0; r < rows; r++) {
+            col.push(board[r][c]); // get the column
+        }
+        col.reverse(); // reverse the column
+        let newCol = slide(col); // slide the column
+        if (newCol.toString() != col.toString()) { //compare the new column to the old column
+            canSlide = true;
+        }
+    }
+
     for (let c = 0; c < cols; c++) {
         let row = [board[0][c], board[1][c], board[2][c], board[3][c]]; // get the column
         row.reverse();
@@ -282,6 +352,8 @@ function slideDown() {
     }
     //console.log(score);
     SortList(score);
+
+    return canSlide;
 }
 
 function SortList(n){
