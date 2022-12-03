@@ -40,6 +40,25 @@ hr {
     grid-row: 2 / span 1;
 }
 
+#sound {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    background-color: #8f7a66;
+    color: #f9f6f2;
+    border: 2px solid #776e65;
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
 #r0 {
     font-size: 50px;
 }

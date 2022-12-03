@@ -1,5 +1,21 @@
 //Andy's Branch pulled from Main Branch
 
+// Audio Objects
+var whoosh = new Audio('audio/whoosh.mp3');
+whoosh.playbackRate = 4;
+
+var gameover = new Audio('audio/gameover.mp3');
+var newgame = new Audio('audio/newgame.mp3');
+var click = new Audio('audio/click.mp3');
+
+// restart the audio clip if it is still playing
+function playAudio(audio) {
+    if (audio.currentTime > 0) {
+        audio.currentTime = 0;
+    }
+    audio.play();
+}
+
 var board;
 var scores = [0x0,0x0,0x0,0x0,0x0];
 var score = 0;
@@ -153,32 +169,57 @@ document.addEventListener("keyup", (e) => {
         resetBoard();
         overPopup = false;
 
+        //play the new game sound
+        playAudio(newgame);
+
         //remove the game over popup
         let popup = document.getElementById("gameover");
         popup.remove();
+    }
+    
+    // if user clicks the sound button, mute or unmute the sound
+    document.getElementById("sound").onclick = function() {
+        if (whoosh.muted) {
+            playAudio(click);
+            whoosh.muted = false;
+            gameover.muted = false;
+            newgame.muted = false;
+            click.muted = false;
+            document.getElementById("sound").innerText = "Sound: On";
+        } else {
+            whoosh.muted = true;
+            gameover.muted = true;
+            newgame.muted = true;
+            click.muted = true;
+            document.getElementById("sound").innerText = "Sound: Off";
+        }
     }
 
     // Arrow Keys
     if (e.code == "ArrowLeft") {
         if (slideLeft()) {
+            playAudio(whoosh);
             generateTile();
             console.log("generated tile");
         }        
     } 
     else if (e.code == "ArrowRight") {
         if (slideRight()) {
+            playAudio(whoosh);
             generateTile();
             console.log("generated tile");
         }
     } 
     else if (e.code == "ArrowUp") {
         if (slideUp()) {
+            playAudio(whoosh);
             generateTile();
             console.log("generated tile");
         }
     }
     else if (e.code == "ArrowDown") {
         if (slideDown()) {
+            playAudio(whoosh);
             generateTile();
             console.log("generated tile");
         }
@@ -191,6 +232,7 @@ document.addEventListener("keyup", (e) => {
         scores = scores.filter((item, index) => scores.indexOf(item) === index);
 
         gameOverPopup();
+        playAudio(gameover);
     }
 })
 
