@@ -182,6 +182,7 @@ document.addEventListener("keyup", (e) => {
             generateTile();
             console.log("generated tile");
         }
+        gameOverPopup();
     }
 
     if (isGameOver() && !overPopup) {
