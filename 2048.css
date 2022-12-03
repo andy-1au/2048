@@ -48,9 +48,6 @@ hr {
 }
 
 #sound {
-    grid-column: 2 / 3;
-    grid-row: 4 / 5;
-
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -105,9 +102,12 @@ hr {
     align-items: center;
 }
 
-#reset {
+#belowBoard {
     grid-column: 2 / 3;
     grid-row: 4 / 4;
+}
+
+#reset {
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
