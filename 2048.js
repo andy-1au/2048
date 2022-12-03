@@ -5,6 +5,20 @@
 
 // I got your message, Andy.
 
+// Test audio
+// var audio = new Audio('audio/swoosh.mp3');
+var leftAudio = new Audio('audio/slide_left.mp3');
+var rightAudio = new Audio('audio/slide_right.mp3');
+var upAudio = new Audio('audio/slide_up.mp3');
+var downAudio = new Audio('audio/slide_down.mp3');
+// restart the audio clip if it is still playing
+function playAudio(audio) {
+    if (audio.currentTime > 0) {
+        audio.currentTime = 0;
+    }
+    audio.play();
+}
+
 var board;
 var scores = [0x0,0x0,0x0,0x0,0x0];
 var score = 0;
@@ -150,6 +164,7 @@ function updateTile(tile, num) {
 }
 
 document.addEventListener("keyup", (e) => {
+    
     //if user clicks the new game button, start a new game
     document.getElementById("reset").onclick = function() {
         resetBoard();
@@ -157,6 +172,7 @@ document.addEventListener("keyup", (e) => {
     // Arrow Keys
     if (e.code == "ArrowLeft") {
         if (slideLeft()) {
+            playAudio(leftAudio);
             generateTile();
             console.log("generated tile");
         }
@@ -169,6 +185,7 @@ document.addEventListener("keyup", (e) => {
     } 
     else if (e.code == "ArrowRight") {
         if (slideRight()) {
+            playAudio(rightAudio);
             generateTile();
             console.log("generated tile");
         }
@@ -179,6 +196,7 @@ document.addEventListener("keyup", (e) => {
     } 
     else if (e.code == "ArrowUp") {
         if (slideUp()) {
+            playAudio(upAudio);
             generateTile();
             console.log("generated tile");
         }
@@ -192,6 +210,7 @@ document.addEventListener("keyup", (e) => {
     }
     else if (e.code == "ArrowDown") {
         if (slideDown()) {
+            playAudio(downAudio);
             generateTile();
             console.log("generated tile");
         }
