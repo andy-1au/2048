@@ -80,7 +80,6 @@ function isGameOver() {
             }
         }
     }
-
     return true;
 }
 
@@ -149,33 +148,18 @@ document.addEventListener("keyup", (e) => {
     document.getElementById("reset").onclick = function() {
         resetBoard();
     }
-    
-    //disable the user to use the arrow keys to move the page up and down
-    if (e.code == 38 || e.code == 40) {
-        e.preventDefault();
-    }
 
     // Arrow Keys
     if (e.code == "ArrowLeft") {
         if (slideLeft()) {
             generateTile();
             console.log("generated tile");
-        }
-        // generateTile();
-        if (isGameOver()) {
-            scores.push(score);
-            scores = scores.filter((item, index) => scores.indexOf(item) === index);
-            alert("Game Over!, Your score is: " + score);
-        }
+        }        
     } 
     else if (e.code == "ArrowRight") {
         if (slideRight()) {
             generateTile();
             console.log("generated tile");
-        }
-        if (isGameOver()) {
-            scores.push(score);
-            scores = scores.filter((item, index) => scores.indexOf(item) === index);
         }
     } 
     else if (e.code == "ArrowUp") {
@@ -183,26 +167,42 @@ document.addEventListener("keyup", (e) => {
             generateTile();
             console.log("generated tile");
         }
-        // slideUp();
-        // generateTile();
-        if (isGameOver()) {
-            scores.push(score);
-            scores = scores.filter((item, index) => scores.indexOf(item) === index);
-            alert("Game Over!, Your score is: " + score);
-        }
     }
     else if (e.code == "ArrowDown") {
         if (slideDown()) {
             generateTile();
             console.log("generated tile");
         }
-        // slideDown();
-        // generateTile();
-        if (isGameOver()) {
-            scores.push(score);
-            scores = scores.filter((item, index) => scores.indexOf(item) === index);
-            alert("Game Over!, Your score is: " + score);
-        }
+    }
+    if (isGameOver()) {
+
+        //stop the event listener from listening for key presses after the game is over
+        document.removeEventListener("keyup", (e) => {
+            //if user clicks the new game button, start a new game
+            document.getElementById("reset").onclick = function() {
+                resetBoard();
+            }
+        });
+
+        scores.push(score);
+        scores = scores.filter((item, index) => scores.indexOf(item) === index);
+
+        //if the game is over, create a "game over" image zooming in the center of the screen using html and css
+        var gameOver = document.createElement("img");
+        gameOver.src = "gameover.png";
+        gameOver.id = "gameover";
+        document.getElementById("board").append(gameOver);
+        gameOver.animate(
+            [
+                {
+                    transform: "scale(0)",
+                },
+                {
+                    transform: "scale(1)",
+                },
+            ],
+            500
+        );
     }
 })
 
