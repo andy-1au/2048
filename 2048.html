@@ -7,13 +7,36 @@
     <title>2048</title>
     <link rel="stylesheet" href="2048.css">
     <script src="2048.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <h1>Welcome to 2048!</h1>
-    <hr>
-    <h2>Score: <span id="score">0</span></h2> <!-- Difference between span and paragraph is p adds a new line -->
-    <div id="board"></div>
-    <button id="reset">New Game</button>
+    <div id = "container">
+        <div id = "title">
+            <h1>Welcome to 2048!</h1>
+        <hr>
+        <h2>Score: <span id="score">0</span></h2> <!-- Difference between span and paragraph is p adds a new line -->
+        </div>
+        <div id="board">
+            
+        </div>
+        <button id="reset">New Game</button>
+        
+        <div id = "highScore">
+            <table id="scoreTable">
+                <h2>High Score</h2>
+                <tr id = "r0">
+                </tr>
+                <tr id = "r1">
+                </tr>
+                <tr id = "r2">
+                </tr>
+                <tr id = "r3">
+                </tr>
+                <tr id = "r4">
+                </tr>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
