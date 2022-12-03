@@ -44,18 +44,25 @@ document.getElementById("reset").onclick = function() {
 
 // if user clicks the sound button, mute or unmute the sound
 document.getElementById("sound").onclick = function() {
-    if (whoosh.muted) {
+    if (whoosh.muted) { // if the sound is muted, unmute it
         playAudio(clickSound);
         whoosh.muted = false;
         gameoverSound.muted = false;
         newgameSound.muted = false;
         clickSound.muted = false;
         document.getElementById("sound").innerText = "Sound: On";
-    } else {
+    } else { // if the sound is not muted, mute it
         whoosh.muted = true;
         gameoverSound.muted = true;
         newgameSound.muted = true;
         clickSound.muted = true;
+
+        // reset the audio clips
+        whoosh.currentTime = 100;
+        gameoverSound.currentTime = 100;
+        newgameSound.currentTime = 100;
+        clickSound.currentTime = 100;
+
         document.getElementById("sound").innerText = "Sound: Off";
     }
 }
