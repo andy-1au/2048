@@ -7,7 +7,7 @@
 
 // Audio Object
 var audio = new Audio('audio/whoosh.mp3');
-audio.playbackRate = 1.5;
+audio.playbackRate = 4;
 
 // restart the audio clip if it is still playing
 function playAudio(audio) {
@@ -177,7 +177,7 @@ document.addEventListener("keyup", (e) => {
             document.getElementById("sound").innerText = "Sound: Off";
         }
     }
-    
+
     // Arrow Keys
     if (e.code == "ArrowLeft") {
         if (slideLeft()) {
