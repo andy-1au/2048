@@ -167,6 +167,17 @@ document.addEventListener("keyup", (e) => {
     document.getElementById("reset").onclick = function() {
         resetBoard();
     }
+    // if user clicks the sound button, mute or unmute the sound
+    document.getElementById("sound").onclick = function() {
+        if (audio.muted) {
+            audio.muted = false;
+            document.getElementById("sound").innerText = "Sound: On";
+        } else {
+            audio.muted = true;
+            document.getElementById("sound").innerText = "Sound: Off";
+        }
+    }
+    
     // Arrow Keys
     if (e.code == "ArrowLeft") {
         if (slideLeft()) {

@@ -35,6 +35,25 @@ hr {
     grid-row: 3 / 5;
 }
 
+#sound {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    background-color: #8f7a66;
+    color: #f9f6f2;
+    border: 2px solid #776e65;
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
 #r0 {
     /* gradient color background */
     background: linear-gradient(90deg, rgb(180, 61, 61) 0%, rgb(242, 8, 8) 50%, rgb(255, 0, 0) 100%);
