@@ -71,9 +71,9 @@ document.getElementById("sound").onclick = function() {
 function newGame() {
     board = 
     [
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
+        [2, 4, 8, 16],
+        [32, 64, 128, 256],
+        [512, 1024, 0, 0],
         [0, 0, 0, 0]
     ]
 
@@ -370,7 +370,7 @@ function slideUp() {
             canSlide = true; 
         }
     }
-    
+
     for (let c = 0; c < cols; c++) {
         let row = [board[0][c], board[1][c], board[2][c], board[3][c]]; // get the column
         row = slide(row); 
