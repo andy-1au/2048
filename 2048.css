@@ -44,7 +44,7 @@ hr {
 .tile { 
     width: 90px; 
     height: 90px; 
-    border: 5px ridge grey;
+    border: 5px ridge rgba(66, 59, 59, 0.7);
     border-radius: 10px;
 
     font-size: 40px;
