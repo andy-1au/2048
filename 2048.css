@@ -2,13 +2,14 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     background-color: rgb(193, 171, 171);
-
+    color: rgba(66, 59, 59, 1);
     /* Test */
     align-items: center;
 }
 
 hr {
     width: 400px;
+    border: 1px solid rgb(66, 59, 59);
 }
 
 #board {
