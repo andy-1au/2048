@@ -18,10 +18,10 @@ window.onload = function() {
 function newGame() {
     board = 
     [
-        [2, 4, 8, 16],
-        [32, 64, 128, 256],
-        [512, 1024, 2048, 4096],
-        [8192, 0, 0, 0]
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]
     ]
 
     for (let r = 0; r < rows; r++) {
@@ -182,7 +182,6 @@ document.addEventListener("keyup", (e) => {
             generateTile();
             console.log("generated tile");
         }
-        gameOverPopup();
     }
 
     if (isGameOver() && !overPopup) {
