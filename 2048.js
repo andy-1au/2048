@@ -6,6 +6,8 @@ var score = 0;
 var rows = 4;
 var cols = 4;
 
+var overPopup = false;
+
 // with high score table
 
 window.onload = function() {
@@ -143,10 +145,17 @@ function updateTile(tile, num) {
     document.getElementById("score").innerText = score; // update the score
 }
 
+
 document.addEventListener("keyup", (e) => {
+    console.log(overPopup);
     //if user clicks the new game button, start a new game
     document.getElementById("reset").onclick = function() {
         resetBoard();
+        overPopup = false;
+
+        //remove the game over popup
+        let popup = document.getElementById("gameover");
+        popup.remove();
     }
 
     // Arrow Keys
@@ -174,37 +183,39 @@ document.addEventListener("keyup", (e) => {
             console.log("generated tile");
         }
     }
-    if (isGameOver()) {
 
-        //stop the event listener from listening for key presses after the game is over
-        document.removeEventListener("keyup", (e) => {
-            //if user clicks the new game button, start a new game
-            document.getElementById("reset").onclick = function() {
-                resetBoard();
-            }
-        });
+    if (isGameOver() && !overPopup) {
+        overPopup = true;
 
         scores.push(score);
         scores = scores.filter((item, index) => scores.indexOf(item) === index);
 
-        //if the game is over, create a "game over" image zooming in the center of the screen using html and css
-        var gameOver = document.createElement("img");
-        gameOver.src = "gameover.png";
-        gameOver.id = "gameover";
-        document.getElementById("board").append(gameOver);
-        gameOver.animate(
-            [
-                {
-                    transform: "scale(0)",
-                },
-                {
-                    transform: "scale(1)",
-                },
-            ],
-            500
-        );
+        gameOverPopup();
     }
 })
+
+function gameOverPopup() {
+    var gameOver = document.createElement("img");
+    gameOver.src = "gameover.png";
+    gameOver.id = "gameover";
+
+    gameOver.style.top = "50%";
+    gameOver.style.left = "50%";
+
+    document.getElementById("title").append(gameOver); //append to title div so it's centered above the board
+
+    gameOver.animate( //animations 
+        [
+            {
+                transform: "scale(0)",
+            },
+            {
+                transform: "scale(1)",
+            },
+        ],
+        500
+    );
+}
 
 function filterZero(row) {
     return row.filter(num => num != 0); // return a new array with all the non-zero numbers
@@ -321,9 +332,7 @@ function slideUp() {
             updateTile(tile, num);
         }
     }
-    //console.log(score);
     SortList(score);
-
     return canSlide;
 }
 
@@ -358,7 +367,6 @@ function slideDown() {
             updateTile(tile, num);
         }
     }
-    //console.log(score);
     SortList(score);
 
     return canSlide;

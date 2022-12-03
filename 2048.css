@@ -37,10 +37,6 @@ hr {
     margin: auto;
 }
 
-#r0 {
-    
-}
-
 #board {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
@@ -60,11 +56,9 @@ hr {
     align-content: center;
 }
 
-#scoreTable {
-    
-     
-}
+/* #gameover {
 
+} */
 
 #reset {
     font-size: 20px;
