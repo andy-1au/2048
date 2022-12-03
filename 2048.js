@@ -197,7 +197,7 @@ document.addEventListener("keyup", (e) => {
 
 function gameOverPopup() {
     var gameOver = document.createElement("img");
-    gameOver.src = "gameover.png";
+    gameOver.src = "gameover.gif";
     gameOver.id = "gameover";
 
     gameOver.style.top = "50%";
