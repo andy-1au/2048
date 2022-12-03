@@ -3,6 +3,8 @@ var score = 0;
 var rows = 4;
 var cols = 4;
 
+// andy branch
+
 window.onload = function() {
     newGame();
 }
@@ -10,18 +12,11 @@ window.onload = function() {
 function newGame() {
     board = 
     [
-        [2, 0, 0, 2],
-        [0, 0, 2, 4],
-        [0, 0, 0, 2],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
         [0, 0, 0, 0]
     ]
-
-    /* 
-    [0, 0, 0, 2],
-    [0, 0, 2, 4],
-    [0, 0, 0, 2],
-    [0, 0, 0, 0]
-    */
 
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
@@ -33,8 +28,8 @@ function newGame() {
         }
     }
 
-    // generateTile(); // generate a "2" tile twice to start the game
-    // generateTile();
+    generateTile();
+    generateTile();
 }
 
 function resetBoard() {
@@ -134,13 +129,14 @@ function updateTile(tile, num) {
     tile.classList.add("tile"); // add the tile class back
 
     if (num > 0) {
-        tile.innerText = num;
+        tile.innerText = num; // set the tile number
         if (num <= 4096) {
-            tile.classList.add("x"+num.toString());
+            tile.classList.add("x"+num.toString()); // add the tile class back
         } else {
             tile.classList.add("x8192");
         }
     }
+    
     document.getElementById("score").innerText = score; // update the score
 }
 
@@ -165,8 +161,6 @@ document.addEventListener("keyup", (e) => {
             generateTile();
             console.log("generated tile");
         }
-        // slideRight();
-        // generateTile();
         if (isGameOver()) {
             alert("Game Over!");
         }
@@ -177,14 +171,18 @@ document.addEventListener("keyup", (e) => {
             console.log("generated tile");
         }
         // slideUp();
-        generateTile();
+        // generateTile();
         if (isGameOver()) {
             alert("Game Over!");
         }
     }
     else if (e.code == "ArrowDown") {
-        slideDown();
-        generateTile();
+        if (slideDown()) {
+            generateTile();
+            console.log("generated tile");
+        }
+        // slideDown();
+        // generateTile();
         if (isGameOver()) {
             alert("Game Over!");
         }
@@ -278,19 +276,16 @@ function slideUp() {
     let canSlide = false;
 
     for (c = 0; c < cols; c++) {
-        let newCol = [];
+        let col = [];
         for (r = 0; r < rows; r++) {
-            newCol.push(board[r][c]);
-        }   
-        newCol = slide(newCol);
-        if (newCol.toString() != board[r].toString()) { //compare the new row to the old row
-            canSlide = true;
+            col.push(board[r][c]); // get the column
         }
-        // board[r] = newRow; //not sure if this is needed
+        let newCol = slide(col); // slide the column
+        if (newCol.toString() != col.toString()) { //compare the new column to the old column
+            canSlide = true; 
+        }
     }
-
-
-
+    
     for (let c = 0; c < cols; c++) {
         let row = [board[0][c], board[1][c], board[2][c], board[3][c]]; // get the column
         row = slide(row); 
@@ -304,9 +299,26 @@ function slideUp() {
             updateTile(tile, num);
         }
     }
+
+    return canSlide;
 }
 
 function slideDown() {
+    // check if the board can slide down
+    let canSlide = false;
+
+    for (c = 0; c < cols; c++) {
+        let col = [];
+        for (r = 0; r < rows; r++) {
+            col.push(board[r][c]); // get the column
+        }
+        col.reverse(); // reverse the column
+        let newCol = slide(col); // slide the column
+        if (newCol.toString() != col.toString()) { //compare the new column to the old column
+            canSlide = true;
+        }
+    }
+
     for (let c = 0; c < cols; c++) {
         let row = [board[0][c], board[1][c], board[2][c], board[3][c]]; // get the column
         row.reverse();
@@ -322,5 +334,7 @@ function slideDown() {
             updateTile(tile, num);
         }
     }
+
+    return canSlide;
 }
 
