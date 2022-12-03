@@ -73,7 +73,9 @@ function resetBoard() {
 
     //remove the game over popup
     let popup = document.getElementById("gameover");
-    popup.remove();
+    if(popup != null) {
+        popup.remove();
+    }
 
     generateTile();
     generateTile();
@@ -173,12 +175,10 @@ document.addEventListener("keyup", (e) => {
         resetBoard();
         overPopup = false;
 
+        console.log("found");
+
         //play the new game sound
         playAudio(newgame);
-
-        //remove the game over popup
-        let popup = document.getElementById("gameover");
-        popup.remove();
     }
     
     // if user clicks the sound button, mute or unmute the sound
