@@ -10,6 +10,8 @@ var whoosh = new Audio('audio/whoosh.mp3');
 whoosh.playbackRate = 4;
 
 var gameover = new Audio('audio/gameover.mp3');
+var newgame = new Audio('audio/newgame.mp3');
+var click = new Audio('audio/click.mp3');
 
 // restart the audio clip if it is still playing
 function playAudio(audio) {
@@ -168,14 +170,22 @@ document.addEventListener("keyup", (e) => {
     //if user clicks the new game button, start a new game
     document.getElementById("reset").onclick = function() {
         resetBoard();
+        playAudio(newgame);
     }
     // if user clicks the sound button, mute or unmute the sound
     document.getElementById("sound").onclick = function() {
         if (whoosh.muted) {
+            playAudio(click);
             whoosh.muted = false;
+            gameover.muted = false;
+            newgame.muted = false;
+            click.muted = false;
             document.getElementById("sound").innerText = "Sound: On";
         } else {
             whoosh.muted = true;
+            gameover.muted = true;
+            newgame.muted = true;
+            click.muted = true;
             document.getElementById("sound").innerText = "Sound: Off";
         }
     }
