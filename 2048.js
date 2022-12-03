@@ -149,6 +149,12 @@ document.addEventListener("keyup", (e) => {
     document.getElementById("reset").onclick = function() {
         resetBoard();
     }
+    
+    //disable the user to use the arrow keys to move the page up and down
+    if (e.code == 38 || e.code == 40) {
+        e.preventDefault();
+    }
+
     // Arrow Keys
     if (e.code == "ArrowLeft") {
         if (slideLeft()) {
