@@ -1,3 +1,5 @@
+// Michael's Test Comment ~~~
+
 var board;
 var score = 0; 
 var rows = 4;
