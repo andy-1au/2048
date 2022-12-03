@@ -222,7 +222,6 @@ document.addEventListener("keyup", (e) => {
         if (slideDown()) {
             playAudio(whoosh);
             generateTile();
-            gameOverPopup();
         }
     }
 
