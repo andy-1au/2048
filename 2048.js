@@ -55,6 +55,10 @@ function resetBoard() {
         }
     }
 
+    //remove the game over popup
+    let popup = document.getElementById("gameover");
+    popup.remove();
+
     generateTile();
     generateTile();
 }
@@ -151,36 +155,28 @@ document.addEventListener("keyup", (e) => {
     //if user clicks the new game button, start a new game
     document.getElementById("reset").onclick = function() {
         resetBoard();
-        overPopup = false;
-
-        //remove the game over popup
-        let popup = document.getElementById("gameover");
-        popup.remove();
+        overPopup = false;        
     }
 
     // Arrow Keys
     if (e.code == "ArrowLeft") {
         if (slideLeft()) {
             generateTile();
-            console.log("generated tile");
         }        
     } 
     else if (e.code == "ArrowRight") {
         if (slideRight()) {
             generateTile();
-            console.log("generated tile");
         }
     } 
     else if (e.code == "ArrowUp") {
         if (slideUp()) {
             generateTile();
-            console.log("generated tile");
         }
     }
     else if (e.code == "ArrowDown") {
         if (slideDown()) {
             generateTile();
-            console.log("generated tile");
         }
     }
 
