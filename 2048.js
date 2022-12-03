@@ -5,9 +5,11 @@
 
 // I got your message, Andy.
 
-// Audio Object
-var audio = new Audio('audio/whoosh.mp3');
-audio.playbackRate = 4;
+// Audio Objects
+var whoosh = new Audio('audio/whoosh.mp3');
+whoosh.playbackRate = 4;
+
+var gameover = new Audio('audio/gameover.mp3');
 
 // restart the audio clip if it is still playing
 function playAudio(audio) {
@@ -169,11 +171,11 @@ document.addEventListener("keyup", (e) => {
     }
     // if user clicks the sound button, mute or unmute the sound
     document.getElementById("sound").onclick = function() {
-        if (audio.muted) {
-            audio.muted = false;
+        if (whoosh.muted) {
+            whoosh.muted = false;
             document.getElementById("sound").innerText = "Sound: On";
         } else {
-            audio.muted = true;
+            whoosh.muted = true;
             document.getElementById("sound").innerText = "Sound: Off";
         }
     }
@@ -181,7 +183,7 @@ document.addEventListener("keyup", (e) => {
     // Arrow Keys
     if (e.code == "ArrowLeft") {
         if (slideLeft()) {
-            playAudio(audio);
+            playAudio(whoosh);
             generateTile();
             console.log("generated tile");
         }
@@ -190,22 +192,24 @@ document.addEventListener("keyup", (e) => {
             scores.push(score);
             scores = scores.filter((item, index) => scores.indexOf(item) === index);
             alert("Game Over!, Your score is: " + score);
+            playAudio(gameover);
         }
     } 
     else if (e.code == "ArrowRight") {
         if (slideRight()) {
-            playAudio(audio);
+            playAudio(whoosh);
             generateTile();
             console.log("generated tile");
         }
         if (isGameOver()) {
             scores.push(score);
             scores = scores.filter((item, index) => scores.indexOf(item) === index);
+            playAudio(gameover);
         }
     } 
     else if (e.code == "ArrowUp") {
         if (slideUp()) {
-            playAudio(audio);
+            playAudio(whoosh);
             generateTile();
             console.log("generated tile");
         }
@@ -215,11 +219,12 @@ document.addEventListener("keyup", (e) => {
             scores.push(score);
             scores = scores.filter((item, index) => scores.indexOf(item) === index);
             alert("Game Over!, Your score is: " + score);
+            playAudio(gameover);
         }
     }
     else if (e.code == "ArrowDown") {
         if (slideDown()) {
-            playAudio(audio);
+            playAudio(whoosh);
             generateTile();
             console.log("generated tile");
         }
@@ -229,6 +234,7 @@ document.addEventListener("keyup", (e) => {
             scores.push(score);
             scores = scores.filter((item, index) => scores.indexOf(item) === index);
             alert("Game Over!, Your score is: " + score);
+            playAudio(gameover);
         }
     }
 })
