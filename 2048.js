@@ -115,6 +115,8 @@ function generateTile() {
 function updateTile(tile, num) {
     tile.innerText = ""; // clear the tile number
     tile.classList.value = ""; // clear the tile class
+    tile.classList.add("tile"); // add the tile class back
+
     if (num > 0) {
         tile.innerText = num; // set the tile number
         if (num <= 4096) {
@@ -123,10 +125,6 @@ function updateTile(tile, num) {
             tile.classList.add("x8192");
         }
     }
-
-    tile.classList.add("tile"); // add the tile class back
-    tile.classList.add("tileAnimation"); // add the tile animation class
-
     
     document.getElementById("score").innerText = score; // update the score
 }
