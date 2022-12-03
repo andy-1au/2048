@@ -3,9 +3,6 @@ body {
     display: grid;
     text-align: center;
     background-color: rgb(193, 171, 171);
-
-    /* Test */
-    align-items: center;
 }
 
 hr {
@@ -25,14 +22,17 @@ hr {
     align-items: center;
     justify-items: center;
 }
+
 #title {
     grid-column: 1 / span 2;
     grid-row: 1 / 2;
 }
+
 #reset {
     grid-column: 1 / 2;
     grid-row: 3 / 5;
 }
+
 #r0 {
     /* gradient color background */
     background: linear-gradient(90deg, rgb(180, 61, 61) 0%, rgb(242, 8, 8) 50%, rgb(255, 0, 0) 100%);
