@@ -4,9 +4,9 @@
 var whoosh = new Audio('audio/whoosh.mp3');
 whoosh.playbackRate = 4;
 
-var gameover = new Audio('audio/gameover.mp3');
-var newgame = new Audio('audio/newgame.mp3');
-var click = new Audio('audio/click.mp3');
+var gameoverSound = new Audio('audio/gameover.mp3');
+var newgameSound = new Audio('audio/newgame.mp3');
+var clickSound = new Audio('audio/click.mp3');
 
 // restart the audio clip if it is still playing
 function playAudio(audio) {
@@ -73,7 +73,7 @@ function resetBoard() {
 
     //remove the game over popup
     let popup = document.getElementById("gameover");
-    if(popup != null) {
+    if(popup) {
         popup.remove();
     }
 
@@ -169,7 +169,7 @@ function updateTile(tile, num) {
 
 
 document.addEventListener("keyup", (e) => {
-    console.log(overPopup);
+    // console.log(overPopup);
     //if user clicks the new game button, start a new game
     document.getElementById("reset").onclick = function() {
         resetBoard();
@@ -178,23 +178,23 @@ document.addEventListener("keyup", (e) => {
         console.log("found");
 
         //play the new game sound
-        playAudio(newgame);
+        playAudio(newgameSound);
     }
     
     // if user clicks the sound button, mute or unmute the sound
     document.getElementById("sound").onclick = function() {
         if (whoosh.muted) {
-            playAudio(click);
+            playAudio(clickSound);
             whoosh.muted = false;
-            gameover.muted = false;
-            newgame.muted = false;
-            click.muted = false;
+            gameoverSound.muted = false;
+            newgameSound.muted = false;
+            clickSound.muted = false;
             document.getElementById("sound").innerText = "Sound: On";
         } else {
             whoosh.muted = true;
-            gameover.muted = true;
-            newgame.muted = true;
-            click.muted = true;
+            gameoverSound.muted = true;
+            newgameSound.muted = true;
+            clickSound.muted = true;
             document.getElementById("sound").innerText = "Sound: Off";
         }
     }
@@ -232,7 +232,7 @@ document.addEventListener("keyup", (e) => {
         scores = scores.filter((item, index) => scores.indexOf(item) === index);
 
         gameOverPopup();
-        playAudio(gameover);
+        playAudio(gameoverSound);
     }
 })
 
