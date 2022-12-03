@@ -71,6 +71,10 @@ function resetBoard() {
         }
     }
 
+    //remove the game over popup
+    let popup = document.getElementById("gameover");
+    popup.remove();
+
     generateTile();
     generateTile();
 }
@@ -200,28 +204,24 @@ document.addEventListener("keyup", (e) => {
         if (slideLeft()) {
             playAudio(whoosh);
             generateTile();
-            console.log("generated tile");
         }        
     } 
     else if (e.code == "ArrowRight") {
         if (slideRight()) {
             playAudio(whoosh);
             generateTile();
-            console.log("generated tile");
         }
     } 
     else if (e.code == "ArrowUp") {
         if (slideUp()) {
             playAudio(whoosh);
             generateTile();
-            console.log("generated tile");
         }
     }
     else if (e.code == "ArrowDown") {
         if (slideDown()) {
             playAudio(whoosh);
             generateTile();
-            console.log("generated tile");
         }
     }
 
