@@ -5,12 +5,10 @@
 
 // I got your message, Andy.
 
-// Test audio
-// var audio = new Audio('audio/swoosh.mp3');
-var leftAudio = new Audio('audio/slide_left.mp3');
-var rightAudio = new Audio('audio/slide_right.mp3');
-var upAudio = new Audio('audio/slide_up.mp3');
-var downAudio = new Audio('audio/slide_down.mp3');
+// Audio Object
+var audio = new Audio('audio/whoosh.mp3');
+audio.playbackRate = 1.5;
+
 // restart the audio clip if it is still playing
 function playAudio(audio) {
     if (audio.currentTime > 0) {
@@ -172,7 +170,7 @@ document.addEventListener("keyup", (e) => {
     // Arrow Keys
     if (e.code == "ArrowLeft") {
         if (slideLeft()) {
-            playAudio(leftAudio);
+            playAudio(audio);
             generateTile();
             console.log("generated tile");
         }
@@ -185,7 +183,7 @@ document.addEventListener("keyup", (e) => {
     } 
     else if (e.code == "ArrowRight") {
         if (slideRight()) {
-            playAudio(rightAudio);
+            playAudio(audio);
             generateTile();
             console.log("generated tile");
         }
@@ -196,7 +194,7 @@ document.addEventListener("keyup", (e) => {
     } 
     else if (e.code == "ArrowUp") {
         if (slideUp()) {
-            playAudio(upAudio);
+            playAudio(audio);
             generateTile();
             console.log("generated tile");
         }
@@ -210,7 +208,7 @@ document.addEventListener("keyup", (e) => {
     }
     else if (e.code == "ArrowDown") {
         if (slideDown()) {
-            playAudio(downAudio);
+            playAudio(audio);
             generateTile();
             console.log("generated tile");
         }
