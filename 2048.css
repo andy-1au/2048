@@ -1,6 +1,5 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    display: grid;
     text-align: center;
     background-color: rgb(255, 250, 250);
 }
@@ -60,8 +59,8 @@ hr {
 }
 
 #scoreTable {
-    /* vertical gradient light blue */
-    background: linear-gradient(to bottom, rgba(0, 255, 255, 0.5), rgb(96, 96, 248,0.5));
+    /* vertical gradient from blue red yellow */
+    background: linear-gradient(to bottom, rgba(0, 0, 255, 0.533), rgba(255, 0, 0, 0.537), rgba(255, 255, 0, 0.421));
     grid-column: 1 / 2;
     grid-row: 2 / 5;
     margin: 0 auto;
@@ -109,80 +108,82 @@ hr {
 }
 
 .x2 {
-    /* background-color: #00d0ffe0; */
+    background-color: #71b5da;
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: #321b1b;
 }
 
 .x4 {
-    /* background-color: #34daffe1; */
+    background-color: #41e9ff;
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: #321b1b;
 }
 
 .x8 {
-    /* background-color: #4398e7; */
+    background-color: #3bbaff;
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: #321b1b;
 }
 
 .x16 {
-    /* background-color: #e7957a; */
+    background-color:#00a6ff;
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: #321b1b;
 }
 
 .x32 {
-    /* background-color: #f57c5f; */
+    background-color: #F66D07;
     /* background: linear-gradient(40deg, rgb(34, 196, 50) 0%, rgb(0, 255, 8) 50%, rgb(34, 196, 61) 100%); */
     color: #321b1b;
 }
 
 .x64 {
-    /* background-color: #f65d3b; */
+    background-color: #EB2104;
+
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: #321b1b;
 }
 
 .x128 {
-    /* background-color: #edce71; */
+    background-color: #ff6060;
+
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: #321b1b;
 }
 
 .x256 {
-    /* background-color: #edcc63; */
+    background-color: #D44006;
+
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: #321b1b;
 }
 
 .x512 {
-    /* background-color: #edc651; */
+    background-color: #F7DA48;
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: #321b1b;
 }
 
 .x1024 {
-    /* background-color: #eec744; */
+    background-color: #D4B13D;
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: #321b1b;
 }
 
 .x2048 {
-    /* background-color: #eec230; */
-    /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
+    background-color: #EBBC4F;
+    /* background: linear-gradient(40deg, rgba(61, 56, 56, 0.5) 0%, rgb(232, 229, 229) 50%, rgba(97, 92, 92, 0.5) 100%); */
     color: #321b1b;
 }
 
 .x4096 {
-    /* background-color: #fe3d3d; */
-    /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
+    background-color:#F5AE53;
+    /* background: linear-gradient(40deg, rgb(0, 255, 119) 0%, rgb(164, 244, 152) 50%,  rgb(0, 255, 119) 100%); */
     color: #321b1b;
 }
 
 .x8192 {
-    /* background-color: #ff2020; */
-    /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
+    background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%);
     color: #321b1b;
 }
 
