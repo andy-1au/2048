@@ -46,6 +46,9 @@ document.getElementById("reset").onclick = function() {
 
     console.log("found");
 
+    // reset the gameover sound
+    gameoverSound.currentTime = 0;
+    gameoverSound.muted = true;
     //play the new game sound
     playAudio(newgameSound);
     song.muted = false;
@@ -272,6 +275,7 @@ document.addEventListener("keyup", (e) => {
         gameOverPopup();
         
         song.muted = true;
+        gameoverSound.muted = false;
         playAudio(gameoverSound);
     }
 })
