@@ -19,8 +19,6 @@ function playAudio(audio) {
     audio.play();
 }
 
-
-
 var board;
 var scores = [0x0, 0x0, 0x0, 0x0, 0x0];
 var score = 0;
@@ -37,12 +35,11 @@ window.onload = function () {
     song.loop = true;
     song.volume = 0.7;
 
-
-//add click event listener to the splash screen
-document.getElementById("splash").onclick = function() {
-    document.getElementById("splash").style.display = "none";
-    song.play();
-} 
+    //add click event listener to the splash screen
+    document.getElementById("splash").onclick = function () {
+        document.getElementById("splash").style.display = "none";
+        song.play();
+    }
 
     // add event listeners here
     //if user clicks the new game button, start a new game
@@ -101,16 +98,26 @@ document.getElementById("splash").onclick = function() {
             document.getElementById("sound").innerText = "Sound: Off";
         }
     }
+
+    // if user clicks the theme button, change the theme
+    document.getElementById("theme").onclick = function () {
+        changeTheme();
+        // playAudio(clickSound);
+    }
 }
 
 function changeTheme() {
-    let themeList = ["starwars", "duck"];
+    let themeList = ["starwars", "duck"]; // append a new theme to the list and add to if else statement below
     // when the user clicks the theme button, change the theme
-    let currentTheme = document.getElementById("style").getAttribute("href");
-    if (currentTheme === "css/" + theme[0] + ".css") {
-        document.getElementById("style").setAttribute("href", "css/" + themeList[1] + ".css");
-    } else {
-        document.getElementById("style").setAttribute("href", "css/" + themeList[0] + ".css");
+    // get the current theme
+    let currentTheme = document.getElementById("style").getAttribute("href"); 
+    console.log(currentTheme); // debug
+
+    // change to the next theme
+    if (currentTheme == "css/starwars.css") {
+        document.getElementById("style").setAttribute("href", "css/duck.css");
+    } else if (currentTheme == "css/duck.css") {
+        document.getElementById("style").setAttribute("href", "css/starwars.css");
     }
 }
 
