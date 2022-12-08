@@ -45,6 +45,7 @@ document.getElementById("reset").onclick = function() {
 //add click event listener to the splash screen
 document.getElementById("splash").onclick = function() {
     document.getElementById("splash").style.display = "none";
+    // hide all htmls aside from the splash scrren and the game
 } 
 
 // if user clicks the sound button, mute or unmute the sound
@@ -260,21 +261,14 @@ document.addEventListener("keyup", (e) => {
 
 function gameOverPopup() {
     // create a new img element inside the boarder div
+
     var gameOver = document.createElement("img");
-    gameOver.src = "gif/gameover.gif";
-    gameOver.id = "gameover";
-    gameOver.style.position = "absolute";
-    // center the gamover popup
-    gameOver.style.left = "50%";
-    gameOver.style.top = "50%";
-    gameOver.style.transform = "translate(-50%, -50%)";
-
-    gameOver.style.zIndex = "1"; // make sure it's on top of the board
+    gameOver.src = "gif/cleargameover.gif";
+    gameOver.id = "gameOver";
     
-
-
-    document.getElementById("title").append(gameOver); //append to title div so it's centered above the board
-
+    board = document.getElementById("board");
+    board.append(gameOver);
+    
     gameOver.animate( //animations 
         [
             {
@@ -284,7 +278,7 @@ function gameOverPopup() {
                 transform: "scale(1)",
             },
         ],
-        500
+        1000
     );
 }
 

@@ -14,16 +14,19 @@ body {
 
     background-image: url();
     background-size: cover;
-    
 }
 
-hr {
-    width: 400px;
-    border: 1px solid rgb(66, 59, 59);
+#video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -100;
 }
 
 #container {
-    /* make a grid with 2 rows and 3 cols */
+    /* adjust the grid size to the screen size */
     display: grid;
     width: 1400px;
     height: 700px;
@@ -43,7 +46,7 @@ hr {
 }
 
 #title {
-    font-family:"Squid";
+    font-family: "Squid";
     font-size: 25px;
     grid-column: 1 / span 3;
     grid-row: 1 / span 1;
@@ -79,7 +82,7 @@ hr {
     /* display this on the container grid in the second row and spans the left 2 columns */
     grid-column: 2 / 2;
     grid-row: 2 / 4;
-    
+
     /* border: 5px solid rgb(0, 0, 0); */
     border-radius: 10px;
     padding: 3px;
@@ -87,14 +90,15 @@ hr {
     width: 600px;
     height: 600px;
 
-    margin: 0 auto; /* center the board */
-    display: flex; 
-    flex-wrap: wrap; 
+    margin: 0 auto;
+    /* center the board */
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-content: center;
 
     /* border: 5px solid rgb(0, 0, 0); */
-    background-color: rgb(0,0,0,0.9);
+    background-color: rgb(0, 0, 0, 0.9);
 }
 
 #highScore {
@@ -103,7 +107,7 @@ hr {
 }
 
 #scoreTable {
-    font-family:"Squid";
+    font-family: "Squid";
 
     /* vertical gradient from blue red yellow */
     background: linear-gradient(to bottom, rgba(0, 0, 255, 0.533), rgba(255, 0, 0, 0.537), rgba(255, 255, 0, 0.421));
@@ -142,25 +146,41 @@ hr {
 }
 
 #splash {
-    cursor : pointer;
-    position : absolute;
-    top : 0;
-    left : 0;
-    width : 100%;
-    height : 100%;
-    z-index : 100;
-    background-color : rgba(0,0,0,0.5);
-    display : flex;
-    justify-content : center;
-    align-items : center;
-    font-size : 50px;
-    color : white;
-    font-family : "Squid";
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    color: white;
+    font-family: "Squid";
 }
 
-.tile{
-    width: 135px; /* account for border 5px */
-    height: 135px; 
+#gameOver {
+    /* stack the game over element over the board location in grid */
+    position: absolute;
+    grid-column: 2 / 2;
+    grid-row: 2 / 4;
+    /* border: 5px solid rgb(0, 0, 0); */
+    border-radius: 10px;
+    padding: 3px;
+
+    width: 600px;
+    height: 500px;
+
+    margin: 0 auto;
+}
+
+.tile {
+    width: 135px;
+    /* account for border 5px */
+    height: 135px;
     border: 2px solid #e7dfdf;
     margin: 1px;
     border-radius: 5px;
@@ -191,7 +211,7 @@ hr {
 }
 
 .x16 {
-    background-color:#1368aa;
+    background-color: #1368aa;
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: white;
 }
@@ -252,4 +272,3 @@ hr {
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: white;
 }
-

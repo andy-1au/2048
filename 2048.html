@@ -16,9 +16,12 @@
         <h1>Welcome to 2048!</h1>
     </div>
 
+    <video autoplay muted loop id="video"> 
+        <source src="background/rightducky.mp4" type="video/mp4">
+    </video>
+
     <div id = "container">
         <div id = "title">
-        <hr>
         <h2>Score: <span id="score">0</span></h2> <!-- Difference between span and paragraph is p adds a new line -->
         </div>
         <div id="board">
@@ -28,7 +31,6 @@
             <button id="reset">New Game</button>
             <button id="sound">Sound: On</button>
         </div>
-        
         
         <div id = "highScore">
             <table id="scoreTable">
