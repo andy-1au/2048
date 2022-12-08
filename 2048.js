@@ -5,7 +5,8 @@ var whoosh = new Audio('audio/discord-notification.mp3');
 whoosh.playbackRate = 4;
 
 
-var gameoverSound = new Audio('audio/gameover.mp3');
+var song = new Audio("audio/bg-music.mp3");
+var gameoverSound = new Audio('audio/gameover-sound.mp3');
 var newgameSound = new Audio('audio/newgame.mp3');
 var clickSound = new Audio('audio/click.mp3');
 
@@ -30,7 +31,6 @@ var overPopup = false;
 // with high score table
 
 window.onload = function() {
-    var song = new Audio("audio/bg-music.mp3");
     newGame();
     SortList(scores);
     song.loop = true;
@@ -48,6 +48,7 @@ document.getElementById("reset").onclick = function() {
 
     //play the new game sound
     playAudio(newgameSound);
+    song.muted = false;
 }
 
 //add click event listener to the splash screen
@@ -269,6 +270,8 @@ document.addEventListener("keyup", (e) => {
         scores = scores.filter((item, index) => scores.indexOf(item) === index);
 
         gameOverPopup();
+        
+        song.muted = true;
         playAudio(gameoverSound);
     }
 })
