@@ -81,8 +81,8 @@ hr {
     border-radius: 10px;
     padding: 3px;
 
-    width: 400px;
-    height: 400px;
+    width: 600px;
+    height: 600px;
 
     margin: 0 auto; /* center the board */
     display: flex; 
@@ -133,8 +133,8 @@ hr {
 }
 
 .tile{
-    width: 90px; /* account for border 5px */
-    height: 90px; 
+    width: 135px; /* account for border 5px */
+    height: 135px; 
     border: 2px solid #e7dfdf;
     margin: 1px;
     border-radius: 5px;
