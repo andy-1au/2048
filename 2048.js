@@ -121,6 +121,8 @@ function changeTheme() {
     } else if (currentTheme == "css/duck.css") {
         document.getElementById("style").setAttribute("href", "css/starwars.css");
         document.getElementById("video").setAttribute("src", "background/hyperloop.mp4");
+    } else if (currentTheme == "css/replaceme.css") {
+        // TODO
     }
 }
 
