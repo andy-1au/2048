@@ -151,6 +151,22 @@ hr {
     cursor: pointer;
 }
 
+#theme {
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    background-color: #8f7a66;
+    color: #f9f6f2;
+    border: 2px solid #776e65;
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
 #splash {
     cursor : pointer;
     position : absolute;
