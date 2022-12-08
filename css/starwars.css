@@ -71,27 +71,6 @@ body {
     grid-row: 1 / span 1;
 }
 
-#reset {
-    grid-column: 1 / span 1;
-    grid-row: 2 / span 1;
-}
-
-#sound {
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-
-    font-size: 20px;
-    font-weight: bold;
-
-    background-color: #8f7a66;
-    color: #f9f6f2;
-    border: 2px solid #776e65;
-    border-radius: 10px;
-
-    cursor: pointer;
-}
-
 #r0 {
     font-size: 50px;
 }
@@ -150,6 +129,9 @@ body {
 }
 
 #reset {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -157,9 +139,9 @@ body {
     font-size: 20px;
     font-weight: bold;
 
-    background-color: #8f7a66;
-    color: #f9f6f2;
-    border: 2px solid #776e65;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: 2px solid white;
     border-radius: 10px;
 
     cursor: pointer;
@@ -173,9 +155,25 @@ body {
     font-size: 20px;
     font-weight: bold;
 
-    background-color: #8f7a66;
-    color: #f9f6f2;
-    border: 2px solid #776e65;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+#sound {
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: 2px solid white;
     border-radius: 10px;
 
     cursor: pointer;
