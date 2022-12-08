@@ -17,19 +17,29 @@ body {
     font-family: 'StarWars', 'ClearSans', 'Times New Roman', 'Calibri', Arial, sans-serif;
     /* font-weight: 300; */
     text-align: center;
-    background-color: rgb(255, 250, 250);
+    /* background-color: rgb(255, 250, 250); */
 
     margin: 0;
     padding: 0;
 
-    background-image: url();
-    background-size: cover;
-    
+    /* background-image: url('https://youtu.be/t3WXTDhJezc'); */
+    background-size: 100%;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    height:100%;
+    width:100%;
 }
 
-hr {
-    width: 400px;
-    border: 1px solid rgb(66, 59, 59);
+#video {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    
 }
 
 #container {
@@ -55,6 +65,8 @@ hr {
 #title {
     font-family:"StarWars";
     font-size: 25px;
+    color: white;
+
     grid-column: 1 / span 3;
     grid-row: 1 / span 1;
 }
@@ -110,10 +122,12 @@ hr {
 #highScore {
     font-family: "StarWars";
     font-size: 20px;
+    color: white;
 }
 
 #scoreTable {
     font-family:"Squid";
+    color: white;
 
     /* vertical gradient from blue red yellow */
     background: linear-gradient(to bottom, rgba(0, 0, 255, 0.533), rgba(255, 0, 0, 0.537), rgba(255, 255, 0, 0.421));
@@ -152,6 +166,10 @@ hr {
 }
 
 #splash {
+    font-family: "StarWars";
+    font-size : 50px;
+    color : white;
+
     cursor : pointer;
     position : absolute;
     top : 0;
@@ -163,9 +181,7 @@ hr {
     display : flex;
     justify-content : center;
     align-items : center;
-    font-size : 50px;
-    color : white;
-    font-family : "Squid";
+    
 }
 
 .tile{
