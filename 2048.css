@@ -8,8 +8,13 @@
     src: url("fonts/ClearSans-Bold.ttf");
 }
 
+@font-face {
+    font-family: "StarWars";
+    src: url("fonts/Starjedi.ttf");
+}
+
 body {
-    font-family: 'ClearSans', 'Times New Roman', 'Calibri', Arial, sans-serif;
+    font-family: 'StarWars', 'ClearSans', 'Times New Roman', 'Calibri', Arial, sans-serif;
     /* font-weight: 300; */
     text-align: center;
     background-color: rgb(255, 250, 250);
