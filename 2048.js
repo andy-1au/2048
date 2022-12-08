@@ -4,6 +4,7 @@
 var whoosh = new Audio('audio/discord-notification.mp3');
 whoosh.playbackRate = 4;
 
+
 var gameoverSound = new Audio('audio/gameover.mp3');
 var newgameSound = new Audio('audio/newgame.mp3');
 var clickSound = new Audio('audio/click.mp3');
@@ -16,6 +17,8 @@ function playAudio(audio) {
     audio.play();
 }
 
+
+
 var board;
 var scores = [0x0,0x0,0x0,0x0,0x0];
 var score = 0;
@@ -27,8 +30,13 @@ var overPopup = false;
 // with high score table
 
 window.onload = function() {
+    var song = new Audio("audio/bg-music.mp3");
     newGame();
     SortList(scores);
+    song.loop = true;
+    song.volume = 0.7;
+    
+    
 
     // add event listeners here
 //if user clicks the new game button, start a new game
@@ -47,6 +55,11 @@ document.getElementById("splash").onclick = function() {
     document.getElementById("splash").style.display = "none";
 } 
 
+// play the background song when the user clicks anywhere on the page
+document.getElementById("board").onclick = function() {
+    song.play();
+}
+
 // if user clicks the sound button, mute or unmute the sound
 document.getElementById("sound").onclick = function() {
     if (whoosh.muted) { // if the sound is muted, unmute it
@@ -55,12 +68,14 @@ document.getElementById("sound").onclick = function() {
         gameoverSound.muted = false;
         newgameSound.muted = false;
         clickSound.muted = false;
+        song.muted = false;
         document.getElementById("sound").innerText = "Sound: On";
     } else { // if the sound is not muted, mute it
         whoosh.muted = true;
         gameoverSound.muted = true;
         newgameSound.muted = true;
         clickSound.muted = true;
+        song.muted = true;
 
         // reset the audio clips
         whoosh.currentTime = 100;
