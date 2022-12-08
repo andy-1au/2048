@@ -1,10 +1,10 @@
 @font-face {
-    font-family: "ClearSans-Bold";
-    src: url("/fonts/ClearSans-Bold.ttf") format("truetype");
+    font-family: "Squid";
+    src: url("fonts/Game Of Squids.ttf");
 }
 
 body {
-    font-family: 'ClearSans-Bold', 'Times New Roman', 'Calibri', Arial, sans-serif;
+    font-family: 'Times New Roman', 'Calibri', Arial, sans-serif;
     /* font-weight: 300; */
     text-align: center;
     background-color: rgb(255, 250, 250);
@@ -43,6 +43,8 @@ hr {
 }
 
 #title {
+    font-family:"Squid";
+    font-size: 25px;
     grid-column: 1 / span 3;
     grid-row: 1 / span 1;
 }
@@ -73,6 +75,7 @@ hr {
 }
 
 #board {
+
     /* display this on the container grid in the second row and spans the left 2 columns */
     grid-column: 2 / 2;
     grid-row: 2 / 4;
@@ -94,7 +97,14 @@ hr {
     background-color: rgb(0,0,0,0.9);
 }
 
+#highScore {
+    font-family: Squid;
+    font-size: 20px;
+}
+
 #scoreTable {
+    font-family:"Squid";
+
     /* vertical gradient from blue red yellow */
     background: linear-gradient(to bottom, rgba(0, 0, 255, 0.533), rgba(255, 0, 0, 0.537), rgba(255, 255, 0, 0.421));
     grid-column: 1 / 2;
