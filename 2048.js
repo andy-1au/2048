@@ -121,7 +121,6 @@ window.onload = function () {
         // if user clicks the theme button, change the theme
         document.getElementById("theme").onclick = function () {
             changeTheme();
-            // playAudio(clickSound);
         }
     }
 
@@ -135,18 +134,22 @@ window.onload = function () {
         // change to the next theme
         if (currentTheme == "css/starwars.css") {
             document.getElementById("style").setAttribute("href", "css/duck.css");
+            //change the source of the video
+            document.getElementById("video").setAttribute("src", "background/rightducky.mp4");
         } else if (currentTheme == "css/duck.css") {
             document.getElementById("style").setAttribute("href", "css/starwars.css");
+            //change the source of the video
+            document.getElementById("video").setAttribute("src", "background/hyperloop.mp4");
         }
     }
 
     function newGame() {
         board =
             [
-                [2, 4, 2, 4],
-                [4, 2, 4, 2],
-                [2, 4, 2, 4],
-                [4, 2, 4, 2]
+                [0, 0, 0, 0],
+                [0, 0, 0, 0],
+                [0, 0, 0, 0],
+                [0, 0, 0, 0]
             ]
 
         /* 
