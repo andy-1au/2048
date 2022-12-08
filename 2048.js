@@ -21,7 +21,7 @@ function playAudio(audio) {
 
 
 var board;
-var scores = [0x0,0x0,0x0,0x0,0x0];
+var scores = [0x0, 0x0, 0x0, 0x0, 0x0];
 var score = 0;
 var rows = 4;
 var cols = 4;
@@ -30,76 +30,80 @@ var overPopup = false;
 
 // with high score table
 
-window.onload = function() {
+window.onload = function () {
     newGame();
     SortList(scores);
     song.loop = true;
     song.volume = 0.7;
-    
-    
+
+
 
     // add event listeners here
-//if user clicks the new game button, start a new game
-document.getElementById("reset").onclick = function() {
-    resetBoard();
-    overPopup = false;
+    //if user clicks the new game button, start a new game
+    document.getElementById("reset").onclick = function () {
+        resetBoard();
+        overPopup = false;
 
-    console.log("found");
+        console.log("found");
 
-    // reset the gameover sound
-    gameoverSound.currentTime = 0;
-    gameoverSound.muted = true;
-    //play the new game sound
-    playAudio(newgameSound);
-    song.muted = false;
-}
-
-//add click event listener to the splash screen
-document.getElementById("splash").onclick = function() {
-    document.getElementById("splash").style.display = "none";
-} 
-
-// play the background song when the user clicks anywhere on the page
-document.getElementById("board").onclick = function() {
-    song.play();
-}
-
-// if user clicks the sound button, mute or unmute the sound
-document.getElementById("sound").onclick = function() {
-    if (whoosh.muted) { // if the sound is muted, unmute it
-        playAudio(clickSound);
-        whoosh.muted = false;
-        gameoverSound.muted = false;
-        newgameSound.muted = false;
-        clickSound.muted = false;
-        song.muted = false;
-        document.getElementById("sound").innerText = "Sound: On";
-    } else { // if the sound is not muted, mute it
-        whoosh.muted = true;
+        // reset the gameover sound
+        gameoverSound.currentTime = 0;
         gameoverSound.muted = true;
-        newgameSound.muted = true;
-        clickSound.muted = true;
-        song.muted = true;
+        //play the new game sound
+        playAudio(newgameSound);
+        song.muted = false;
+    }
 
-        // reset the audio clips
-        whoosh.currentTime = 100;
-        gameoverSound.currentTime = 100;
-        newgameSound.currentTime = 100;
-        clickSound.currentTime = 100;
+    //add click event listener to the splash screen
+    document.getElementById("splash").onclick = function () {
+        document.getElementById("splash").style.display = "none";
+    }
 
-        document.getElementById("sound").innerText = "Sound: Off";
+    // play the background song when the user clicks anywhere on the page
+    document.getElementById("board").onclick = function () {
+        song.play();
+    }
+
+    // if user clicks the sound button, mute or unmute the sound
+    document.getElementById("sound").onclick = function () {
+        if (whoosh.muted) { // if the sound is muted, unmute it
+            playAudio(clickSound);
+            whoosh.muted = false;
+            gameoverSound.muted = false;
+            newgameSound.muted = false;
+            clickSound.muted = false;
+            song.muted = false;
+            document.getElementById("sound").innerText = "Sound: On";
+        } else { // if the sound is not muted, mute it
+            whoosh.muted = true;
+            gameoverSound.muted = true;
+            newgameSound.muted = true;
+            clickSound.muted = true;
+            song.muted = true;
+
+            // reset the audio clips
+            whoosh.currentTime = 100;
+            gameoverSound.currentTime = 100;
+            newgameSound.currentTime = 100;
+            clickSound.currentTime = 100;
+
+            document.getElementById("sound").innerText = "Sound: Off";
+        }
     }
 }
+
+function changeTheme(theme) {
+    document.getElementById("style").setAttribute("href", "css/" + theme + ".css");
 }
 
 function newGame() {
-    board = 
-    [
-        [2, 4, 2, 4],
-        [4, 2, 4, 2],
-        [2, 4, 2, 4],
-        [4, 2, 4, 2]
-    ]
+    board =
+        [
+            [2, 4, 2, 4],
+            [4, 2, 4, 2],
+            [2, 4, 2, 4],
+            [4, 2, 4, 2]
+        ]
 
     /* 
     [2, 4, 8, 16],
@@ -112,8 +116,8 @@ function newGame() {
         for (let c = 0; c < cols; c++) {
             let tile = document.createElement('div');
             tile.id = r.toString() + "-" + c.toString();  // set the id of the tile
-            let num = board[r][c];  
-            updateTile(tile, num); 
+            let num = board[r][c];
+            updateTile(tile, num);
             document.getElementById("board").append(tile); // add the tile to the board
         }
     }
@@ -141,7 +145,7 @@ function resetBoard() {
 
     //remove the game over popup
     let popup = document.getElementById("gameover");
-    if(popup) {
+    if (popup) {
         popup.remove();
     }
 
@@ -182,7 +186,7 @@ function isFull() {
                 return false; // if there is a zero, the board is not full
             }
         }
-    } 
+    }
     return true; //otherwise, the board is full
 }
 
@@ -203,15 +207,15 @@ function generateTile() {
             let num = board[r][c]; // get the number of the tile from the board
             updateTile(tile, num);
             tile.animate( // animate the tiles that pop in
-              [
-                {
-                  transform: "scale(0)",
-                },
-                {
-                  transform: "scale(1)",
-                },
-              ],
-              125 //switched from 100 t0 125
+                [
+                    {
+                        transform: "scale(0)",
+                    },
+                    {
+                        transform: "scale(1)",
+                    },
+                ],
+                125 //switched from 100 t0 125
             );
             found = true;
         }
@@ -226,16 +230,14 @@ function updateTile(tile, num) {
     if (num > 0) {
         tile.innerText = num; // set the tile number
         if (num <= 4096) {
-            tile.classList.add("x"+num.toString()); // add the tile class back
+            tile.classList.add("x" + num.toString()); // add the tile class back
         } else {
             tile.classList.add("x8192");
         }
     }
-    
+
     document.getElementById("score").innerText = score; // update the score
 }
-
-
 
 document.addEventListener("keyup", (e) => {
     // console.log(overPopup);
@@ -245,14 +247,14 @@ document.addEventListener("keyup", (e) => {
         if (slideLeft()) {
             playAudio(whoosh);
             generateTile();
-        }        
-    } 
+        }
+    }
     else if (e.code == "ArrowRight") {
         if (slideRight()) {
             playAudio(whoosh);
             generateTile();
         }
-    } 
+    }
     else if (e.code == "ArrowUp") {
         if (slideUp()) {
             playAudio(whoosh);
@@ -273,7 +275,7 @@ document.addEventListener("keyup", (e) => {
         scores = scores.filter((item, index) => scores.indexOf(item) === index);
 
         gameOverPopup();
-        
+
         song.muted = true;
         gameoverSound.muted = false;
         playAudio(gameoverSound);
@@ -292,7 +294,7 @@ function gameOverPopup() {
     gameOver.style.transform = "translate(-50%, -50%)";
 
     gameOver.style.zIndex = "1"; // make sure it's on top of the board
-    
+
 
 
     document.getElementById("title").append(gameOver); //append to title div so it's centered above the board
@@ -316,15 +318,15 @@ function filterZero(row) {
 
 function slide(row) {
     row = filterZero(row); // remove all the zeros
-    
+
     for (let i = 0; i < row.length - 1; i++) {
         //check every 2, from left to right
         list = [];
-        if (row[i] == row[i+1]) { // left and right are the same 
-            row[i] *= 2; 
-            row[i+1] = 0;
+        if (row[i] == row[i + 1]) { // left and right are the same 
+            row[i] *= 2;
+            row[i + 1] = 0;
             score += row[i]; // update the score to what was doubled
-        } 
+        }
     }
     row = filterZero(row); // remove all the zeros again due to empty tiles
     //add zeros back to the end of the row
@@ -334,14 +336,14 @@ function slide(row) {
     return row;
 }
 
-function slideLeft() { 
+function slideLeft() {
     // check if the board can slide left
     let canSlide = false;
 
     for (r = 0; r < rows; r++) {
         let newRow = slide(board[r]); // slide the row
         if (newRow.toString() != board[r].toString()) { //compare the new row to the old row
-            canSlide = true; 
+            canSlide = true;
         }
         // board[r] = newRow; //not sure if this is needed 
     }
@@ -370,7 +372,7 @@ function slideRight() {
         board[r].reverse(); // reverse the row
         let newRow = slide(board[r]); // slide the row
         if (newRow.toString() != board[r].toString()) { //compare the new row to the old row
-            canSlide = true; 
+            canSlide = true;
         }
         board[r] = newRow; // update the board with the new row
         board[r].reverse(); //reverse the row back to normal
@@ -390,7 +392,7 @@ function slideRight() {
             updateTile(tile, num);
         }
     }
-    
+
     console.log("RIGHT " + score);
     list = SortList(score);
 
@@ -408,14 +410,14 @@ function slideUp() {
         }
         let newCol = slide(col); // slide the column
         if (newCol.toString() != col.toString()) { //compare the new column to the old column
-            canSlide = true; 
+            canSlide = true;
         }
     }
 
     for (let c = 0; c < cols; c++) {
         let row = [board[0][c], board[1][c], board[2][c], board[3][c]]; // get the column
-        row = slide(row); 
-        
+        row = slide(row);
+
         for (let r = 0; r < rows; r++) {
             // update the board with the new column
             board[r][c] = row[r];
@@ -448,13 +450,13 @@ function slideDown() {
     for (let c = 0; c < cols; c++) {
         let row = [board[0][c], board[1][c], board[2][c], board[3][c]]; // get the column
         row.reverse();
-        row = slide(row); 
+        row = slide(row);
         row.reverse();
-        
+
         for (let r = 0; r < rows; r++) {
             // update the board with the new column
             board[r][c] = row[r];
-            
+
             let tile = document.getElementById(r.toString() + "-" + c.toString());
             let num = board[r][c]; // get the number of the tile from the board
             updateTile(tile, num);
@@ -465,15 +467,15 @@ function slideDown() {
     return canSlide;
 }
 
-function SortList(n){
-    let tmpScores =  scores.slice(0, scores.length); // copy the scores array to a temp array so we don't modify the original array
+function SortList(n) {
+    let tmpScores = scores.slice(0, scores.length); // copy the scores array to a temp array so we don't modify the original array
 
     tmpScores.push(n); // add the new score to the array
     // // sort the list
-    tmpScores = tmpScores.sort(function(a, b){return b-a});
+    tmpScores = tmpScores.sort(function (a, b) { return b - a });
 
     // get the top 5 scores
-    tmpScores = tmpScores.slice(0, 5); 
+    tmpScores = tmpScores.slice(0, 5);
 
     // update the list
     for (let i = 0; i < tmpScores.length; i++) {
