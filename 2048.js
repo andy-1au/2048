@@ -1,7 +1,7 @@
 //Andy's Branch pulled from Main Branch
 
 // Audio Objects
-var whoosh = new Audio('audio/whoosh.mp3');
+var whoosh = new Audio('audio/discord-notification.mp3');
 whoosh.playbackRate = 4;
 
 var gameoverSound = new Audio('audio/gameover.mp3');
