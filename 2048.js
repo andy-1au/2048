@@ -10,7 +10,7 @@ var gameoverSound = new Audio('audio/gameover-sound.mp3');
 var newgameSound = new Audio('audio/newgame.mp3');
 var clickSound = new Audio('audio/click.mp3');
 
-// restart the audio clip if it is still playing
+// restart the audio clip if it is still playing when the user clicks the button
 function playAudio(audio) {
     if (audio.currentTime > 0) {
         audio.currentTime = 0;
