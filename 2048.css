@@ -53,7 +53,7 @@ hr {
 }
 
 #title {
-    font-family:"Squid";
+    font-family:"StarWars";
     font-size: 25px;
     grid-column: 1 / span 3;
     grid-row: 1 / span 1;
