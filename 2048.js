@@ -5,7 +5,8 @@ var whoosh = new Audio('audio/discord-notification.mp3');
 whoosh.playbackRate = 4;
 
 
-var song = new Audio("audio/bg-music.mp3");
+// var song = new Audio("audio/bg-music.mp3");
+var song = new Audio("audio/sw-fullsong.mp3");
 var gameoverSound = new Audio('audio/gameover-sound.mp3');
 var newgameSound = new Audio('audio/newgame.mp3');
 var clickSound = new Audio('audio/click.mp3');
@@ -56,7 +57,12 @@ document.getElementById("splash").onclick = function() {
         gameoverSound.muted = true;
         //play the new game sound
         playAudio(newgameSound);
-        song.muted = false;
+        
+        if(!song.muted) {
+            song.muted = false;
+        } else {
+            song.muted = true;
+        }
     }
 
     //add click event listener to the splash screen
