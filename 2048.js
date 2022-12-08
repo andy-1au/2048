@@ -92,8 +92,15 @@ window.onload = function () {
     }
 }
 
-function changeTheme(theme) {
-    document.getElementById("style").setAttribute("href", "css/" + theme + ".css");
+function changeTheme() {
+    let themeList = ["starwars", "duck"];
+    // when the user clicks the theme button, change the theme
+    let currentTheme = document.getElementById("style").getAttribute("href");
+    if (currentTheme === "css/" + theme[0] + ".css") {
+        document.getElementById("style").setAttribute("href", "css/" + themeList[1] + ".css");
+    } else {
+        document.getElementById("style").setAttribute("href", "css/" + themeList[0] + ".css");
+    }
 }
 
 function newGame() {

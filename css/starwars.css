@@ -1,20 +1,20 @@
 @font-face {
-    font-family: "Squid";
-    src: url("fonts/Game Of Squids.ttf");
+    font-family: 'Squid';
+    src: url("/fonts/Game Of Squids.ttf");
 }
 
 @font-face {
-    font-family: "ClearSans";
-    src: url("fonts/ClearSans-Bold.ttf");
+    font-family: 'ClearSans';
+    src: url("/fonts/ClearSans-Bold.ttf");
 }
 
 @font-face {
-    font-family: "StarWars";
-    src: url("fonts/Starjedi.ttf");
+    font-family: 'StarWars';
+    src: url("/fonts/Starjedi.ttf");
 }
 
 body {
-    font-family: 'StarWars', 'ClearSans', 'Times New Roman', 'Calibri', Arial, sans-serif;
+    font-family: 'StarWars', 'ClearSans', 'Times New Roman', 'Calibri';
     /* font-weight: 300; */
     text-align: center;
     /* background-color: rgb(255, 250, 250); */
@@ -63,7 +63,7 @@ body {
 }
 
 #title {
-    font-family:"StarWars";
+    font-family: "StarWars";
     font-size: 25px;
     color: white;
 
@@ -126,11 +126,12 @@ body {
 }
 
 #scoreTable {
-    font-family:"Squid";
+    font-family:"StarWars";
     color: white;
 
     /* vertical gradient from blue red yellow */
-    background: linear-gradient(to bottom, rgba(0, 0, 255, 0.533), rgba(255, 0, 0, 0.537), rgba(255, 255, 0, 0.421));
+        /* make the background linear gradient black and white*/
+    background: rgba(0,0,0,0.5);
     grid-column: 1 / 2;
     grid-row: 2 / 5;
     margin: 0 auto;
@@ -138,8 +139,7 @@ body {
     margin-bottom: 20px;
     width: 400px;
     border-radius: 10px;
-    background-color: #cdc1b500;
-    border: 6px solid #000000;
+    border: 6px solid #ffffff;
     justify-content: space-around;
     align-items: center;
 }
