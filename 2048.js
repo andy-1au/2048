@@ -42,6 +42,11 @@ document.getElementById("reset").onclick = function() {
     playAudio(newgameSound);
 }
 
+//add click event listener to the splash screen
+document.getElementById("splash").onclick = function() {
+    document.getElementById("splash").style.display = "none";
+} 
+
 // if user clicks the sound button, mute or unmute the sound
 document.getElementById("sound").onclick = function() {
     if (whoosh.muted) { // if the sound is muted, unmute it
@@ -71,10 +76,10 @@ document.getElementById("sound").onclick = function() {
 function newGame() {
     board = 
     [
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0]
+        [2, 4, 2, 4],
+        [4, 2, 4, 2],
+        [2, 4, 2, 4],
+        [4, 2, 4, 2]
     ]
 
     /* 
@@ -254,12 +259,19 @@ document.addEventListener("keyup", (e) => {
 })
 
 function gameOverPopup() {
+    // create a new img element inside the boarder div
     var gameOver = document.createElement("img");
     gameOver.src = "gif/gameover.gif";
     gameOver.id = "gameover";
-
-    gameOver.style.top = "50%";
+    gameOver.style.position = "absolute";
+    // center the gamover popup
     gameOver.style.left = "50%";
+    gameOver.style.top = "50%";
+    gameOver.style.transform = "translate(-50%, -50%)";
+
+    gameOver.style.zIndex = "1"; // make sure it's on top of the board
+    
+
 
     document.getElementById("title").append(gameOver); //append to title div so it's centered above the board
 
