@@ -57,6 +57,7 @@ document.getElementById("reset").onclick = function() {
 //add click event listener to the splash screen
 document.getElementById("splash").onclick = function() {
     document.getElementById("splash").style.display = "none";
+    song.play();
 } 
 
 // play the background song when the user clicks anywhere on the page
