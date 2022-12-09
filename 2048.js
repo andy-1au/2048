@@ -8,7 +8,6 @@ var swipeSoundRain = new Audio('audio/woodSound.mp3');
 
 whoosh.playbackRate = 4;
 
-
 var songStarwars = new Audio("audio/sw-fullsong.mp3");
 songStarwars.volume = 0.5;
 var songDuck = new Audio("audio/squid.mp3");
