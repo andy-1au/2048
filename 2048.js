@@ -100,9 +100,7 @@ window.onload = function () {
     }
 }
 
-function changeTheme() {
-    let themeList = ["starwars", "duck"]; // append a new theme to the list and add to if else statement below
-    // when the user clicks the theme button, change the theme
+function changeTheme() {    
     // get the current theme
     let currentTheme = document.getElementById("style").getAttribute("href"); 
     console.log(currentTheme); // debug
