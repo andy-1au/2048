@@ -176,6 +176,15 @@ body {
     align-items : center;
 }
 
+#gameOver {
+    /* keep it in the grid but overlay it on the second row and second column */
+    grid-column: 2 / 2;
+    grid-row: 2 / 4;
+    position: absolute;
+    
+    margin-top: 200px;
+}
+
 .tile{
     width: 135px; /* account for border 5px */
     height: 135px; 
