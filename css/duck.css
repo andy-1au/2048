@@ -180,18 +180,12 @@ body {
 }
 
 #gameOver {
-    /* stack the game over element over the board location in grid */
-    position: absolute;
+    /* keep it in the grid but overlay it on the second row and second column */
     grid-column: 2 / 2;
     grid-row: 2 / 4;
-    /* border: 5px solid rgb(0, 0, 0); */
-    border-radius: 10px;
-    padding: 3px;
-
-    width: 600px;
-    height: 500px;
-
-    margin: 0 auto;
+    position: absolute;
+    
+    margin-top: 200px;
 }
 
 .tile {
