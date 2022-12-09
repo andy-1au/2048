@@ -1,16 +1,18 @@
 //Main Branch
 
 // Audio Objects
-var whoosh = new Audio('audio/discord-notification.mp3');
+// var whoosh = new Audio('audio/discord-notification.mp3');
+var whoosh = new Audio('audio/fighter.mp3')
 whoosh.playbackRate = 4;
 
 
-var song = new Audio("audio/bg-music.mp3");
+// var song = new Audio("audio/bg-music.mp3");
+var song = new Audio("audio/sw-fullsong.mp3");
 var gameoverSound = new Audio('audio/gameover-sound.mp3');
 var newgameSound = new Audio('audio/newgame.mp3');
 var clickSound = new Audio('audio/click.mp3');
 
-// restart the audio clip if it is still playing
+// restart the audio clip if it is still playing when the user clicks the button
 function playAudio(audio) {
     if (audio.currentTime > 0) {
         audio.currentTime = 0;
@@ -48,22 +50,14 @@ window.onload = function () {
 
         console.log("found");
 
-        // reset the gameover sound
-        gameoverSound.currentTime = 0;
-        gameoverSound.muted = true;
         //play the new game sound
         playAudio(newgameSound);
-        song.muted = false;
     }
 
     //add click event listener to the splash screen
     document.getElementById("splash").onclick = function () {
         document.getElementById("splash").style.display = "none";
-    }
-
-    // play the background song when the user clicks anywhere on the page
-    document.getElementById("board").onclick = function () {
-        song.play();
+        // hide all htmls aside from the splash scrren and the game
     }
 
     // if user clicks the sound button, mute or unmute the sound
@@ -74,52 +68,90 @@ window.onload = function () {
             gameoverSound.muted = false;
             newgameSound.muted = false;
             clickSound.muted = false;
-            song.muted = false;
             document.getElementById("sound").innerText = "Sound: On";
         } else { // if the sound is not muted, mute it
             whoosh.muted = true;
             gameoverSound.muted = true;
-            newgameSound.muted = true;
-            clickSound.muted = true;
-            song.muted = true;
+            //play the new game sound
+            playAudio(newgameSound);
 
-            // reset the audio clips
-            whoosh.currentTime = 100;
-            gameoverSound.currentTime = 100;
-            newgameSound.currentTime = 100;
-            clickSound.currentTime = 100;
+            if (!song.muted) {
+                song.muted = false;
+            } else {
+                song.muted = true;
+            }
+        }
 
-            document.getElementById("sound").innerText = "Sound: Off";
+        //add click event listener to the splash screen
+        document.getElementById("splash").onclick = function () {
+            document.getElementById("splash").style.display = "none";
+        }
+
+        // play the background song when the user clicks anywhere on the page
+        document.getElementById("board").onclick = function () {
+            song.play();
+        }
+
+        // if user clicks the sound button, mute or unmute the sound
+        document.getElementById("sound").onclick = function () {
+            if (whoosh.muted) { // if the sound is muted, unmute it
+                playAudio(clickSound);
+                whoosh.muted = false;
+                gameoverSound.muted = false;
+                newgameSound.muted = false;
+                clickSound.muted = false;
+                song.muted = false;
+                document.getElementById("sound").innerText = "Sound: On";
+            } else { // if the sound is not muted, mute it
+                whoosh.muted = true;
+                gameoverSound.muted = true;
+                newgameSound.muted = true;
+                clickSound.muted = true;
+                song.muted = true;
+
+                // reset the audio clips
+                whoosh.currentTime = 100;
+                gameoverSound.currentTime = 100;
+                newgameSound.currentTime = 100;
+                clickSound.currentTime = 100;
+
+                document.getElementById("sound").innerText = "Sound: Off";
+            }
         }
     }
-
     // if user clicks the theme button, change the theme
     document.getElementById("theme").onclick = function () {
         changeTheme();
-        // playAudio(clickSound);
     }
 }
 
-function changeTheme() {    
+function changeTheme() {
+    let themeList = ["starwars", "duck"]; // append a new theme to the list and add to if else statement below
+    // when the user clicks the theme button, change the theme
     // get the current theme
-    let currentTheme = document.getElementById("style").getAttribute("href"); 
+    let currentTheme = document.getElementById("style").getAttribute("href");
     console.log(currentTheme); // debug
+    console.log("hi")
 
     // change to the next theme
     if (currentTheme == "css/starwars.css") {
         document.getElementById("style").setAttribute("href", "css/duck.css");
+        //change the source of the video
+        document.getElementById("video").setAttribute("src", "background/rightducky.mp4");
     } else if (currentTheme == "css/duck.css") {
         document.getElementById("style").setAttribute("href", "css/starwars.css");
+        //change the source of the video
+        document.getElementById("video").setAttribute("src", "background/hyperloop.mp4");
     }
 }
 
 function newGame() {
     board =
         [
-            [2, 4, 2, 4],
-            [4, 2, 4, 2],
-            [2, 4, 2, 4],
-            [4, 2, 4, 2]
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0]
         ]
 
     /* 
@@ -301,20 +333,13 @@ document.addEventListener("keyup", (e) => {
 
 function gameOverPopup() {
     // create a new img element inside the boarder div
+
     var gameOver = document.createElement("img");
-    gameOver.src = "gif/gameover.gif";
-    gameOver.id = "gameover";
-    gameOver.style.position = "absolute";
-    // center the gamover popup
-    gameOver.style.left = "50%";
-    gameOver.style.top = "50%";
-    gameOver.style.transform = "translate(-50%, -50%)";
+    gameOver.src = "gif/cleargameover.gif";
+    gameOver.id = "gameOver";
 
-    gameOver.style.zIndex = "1"; // make sure it's on top of the board
-
-
-
-    document.getElementById("title").append(gameOver); //append to title div so it's centered above the board
+    board = document.getElementById("board");
+    board.append(gameOver);
 
     gameOver.animate( //animations 
         [
@@ -325,7 +350,7 @@ function gameOverPopup() {
                 transform: "scale(1)",
             },
         ],
-        500
+        1000
     );
 }
 
@@ -502,3 +527,4 @@ function SortList(n) {
 
     return tmpScores;
 }
+
