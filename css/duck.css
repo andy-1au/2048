@@ -73,7 +73,7 @@ body {
     cursor: pointer;
 }
 
-#theme {
+#theme { 
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -126,7 +126,7 @@ body {
     font-family: "Squid";
     /* change the background color of the element from pastel orange to pastel grey */
     background: vertical-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
-    color: white;
+    color: rgb(0, 0, 0);
     grid-column: 1 / 2;
     grid-row: 2 / 5;
     margin: 0 auto;
