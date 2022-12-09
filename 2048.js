@@ -52,7 +52,6 @@ window.onload = function () {
     document.getElementById("reset").onclick = function () {
         resetBoard();
         overPopup = false;
-
         console.log("found");
 
         //play the new game sound
@@ -147,6 +146,7 @@ window.onload = function () {
     }
 
     function newGame() {
+            
         board =
             [
                 [0, 0, 0, 0],
@@ -194,7 +194,7 @@ window.onload = function () {
         }
 
         //remove the game over popup
-        let popup = document.getElementById("gameover");
+        let popup = document.getElementById("gameOver");
         if (popup) {
             popup.remove();
         }
@@ -220,7 +220,7 @@ window.onload = function () {
                 }
                 if (c < cols - 1 && board[r][c] === board[r][c + 1]) { // check to the right 
                     return false;
-                }
+               ƒ }
                 if (c > 0 && board[r][c] === board[r][c - 1]) { // check to the left
                     return false;
                 }
@@ -335,7 +335,6 @@ window.onload = function () {
 
     function gameOverPopup() {
         // create a new img element inside the boarder div
-
         var gameOver = document.createElement("img");
         gameOver.src = "gif/cleargameover.gif";
         gameOver.id = "gameOver";
