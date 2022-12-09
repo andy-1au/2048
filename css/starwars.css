@@ -66,7 +66,7 @@ body {
     font-size: 30px;
     color: red;
     /* make the text neon, but still readable */
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
+    text-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 6px #fff, 0 0 8px #ff0000, 0 0 10px #ff0000, 0 0 12px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000;
 
     grid-column: 1 / span 3;
     grid-row: 1 / span 1;
@@ -83,7 +83,7 @@ body {
     
     /* border: 5px solid rgb(0, 0, 0); */
     border-radius: 10px;
-    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
+    box-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 6px #fff, 0 0 8px #ff0000, 0 0 10px #ff0000, 0 0 12px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000;
     padding: 3px;
 
     width: 600px;
@@ -103,13 +103,15 @@ body {
     font-family: "StarWars";
     font-size: 20px;
     color: red;
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
+    text-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 6px #fff, 0 0 8px #ff0000, 0 0 10px #ff0000, 0 0 12px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000;
+    
 }
 
 #scoreTable {
     font-family:"StarWars";
     color: red;
-    background: linear-gradient(black, rgb(255, 0, 0, 0.5));
+    background: rgba(0,0,0,0.4);
+    /* background: black; */
 
     grid-column: 1 / 2;
     grid-row: 2 / 5;
@@ -118,8 +120,10 @@ body {
     margin-bottom: 20px;
     width: 250px;
     border-radius: 10px;
-    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
-    border: 6px solid white;
+    box-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 6px #fff, 0 0 8px #ff0000, 0 0 10px #ff0000, 0 0 12px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000;
+    border: 4px solid darkgrey;
+    /* background-color: rgba(245, 241, 241, 0.4); */
+
     justify-content: space-around;
     align-items: center;
 }
@@ -140,9 +144,9 @@ body {
 
     background: linear-gradient(black, rgba(255, 0, 0, 0.5));
     color: white;
-    border: 3px solid white;
+    border: 4px solid darkgrey;
     /* make the border glow */
-    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
+    box-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 6px #fff, 0 0 8px #ff0000, 0 0 10px #ff0000, 0 0 12px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000;
     border-radius: 10px;
 
     cursor: pointer;
