@@ -8,7 +8,6 @@ var swipeSoundRain = new Audio('audio/woodSound.mp3');
 
 whoosh.playbackRate = 4;
 
-
 var songStarwars = new Audio("audio/sw-fullsong.mp3");
 songStarwars.volume = 0.5;
 var songDuck = new Audio("audio/squid.mp3");
@@ -29,7 +28,7 @@ function playAudio(audio) {
 }
 
 var board;
-var scores = [0x0, 0x0, 0x0, 0x0, 0x0];
+var scores = [1000, 500, 200, 100, 0];
 var score = 0;
 var rows = 4;
 var cols = 4;
@@ -217,10 +216,8 @@ function resetBoard() {
     }
 
     //remove the game over popup
-    let popup = document.getElementById("gameover");
-    if (popup) {
-        popup.remove();
-    }
+    let popup = document.getElementById("gameOver");
+    popup.remove();
 
     generateTile();
     generateTile();
@@ -363,19 +360,10 @@ document.addEventListener("keyup", (e) => {
 function gameOverPopup() {
     // create a new img element inside the boarder div
     var gameOver = document.createElement("img");
-    gameOver.src = "gif/gameover.gif";
-    gameOver.id = "gameover";
-    gameOver.style.position = "absolute";
-    // center the gamover popup
-    gameOver.style.left = "50%";
-    gameOver.style.top = "50%";
-    gameOver.style.transform = "translate(-50%, -50%)";
+    gameOver.src = "gif/gameovert.gif";
+    gameOver.id = "gameOver";
 
-    gameOver.style.zIndex = "1"; // make sure it's on top of the board
-
-
-
-    document.getElementById("title").append(gameOver); //append to title div so it's centered above the board
+    document.getElementById("board").append(gameOver); //append to title div so it's centered above the board
 
     gameOver.animate( //animations 
         [

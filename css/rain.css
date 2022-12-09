@@ -187,6 +187,15 @@ body {
     cursor: pointer;
 }
 
+#gameOver {
+    /* keep it in the grid but overlay it on the second row and second column */
+    grid-column: 2 / 2;
+    grid-row: 2 / 4;
+    position: absolute;
+    
+    margin-top: 200px;
+}
+
 #splash {
     font-family: "LemonMilk";
     font-size : 50px;
