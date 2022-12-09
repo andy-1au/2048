@@ -83,6 +83,7 @@ body {
     
     /* border: 5px solid rgb(0, 0, 0); */
     border-radius: 10px;
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
     padding: 3px;
 
     width: 600px;
