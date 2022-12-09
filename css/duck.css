@@ -26,7 +26,7 @@ body {
 }
 
 #container {
-    /* adjust the grid size to the screen size */
+    /* make a grid with 2 rows and 3 cols */
     display: grid;
     width: 1400px;
     height: 700px;
@@ -65,9 +65,25 @@ body {
     font-size: 20px;
     font-weight: bold;
 
-    background-color: #8f7a66;
+    background-color: #ea7a12b0;
     color: #f9f6f2;
-    border: 2px solid #776e65;
+    border: 2px solid #000000;
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+#theme { 
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    background-color: #e6dddd9b;
+    color: #000000;
+    border: 2px solid #000000;
     border-radius: 10px;
 
     cursor: pointer;
@@ -82,7 +98,7 @@ body {
     /* display this on the container grid in the second row and spans the left 2 columns */
     grid-column: 1 / 3;
     grid-row: 2 / 4;
-
+    
     /* border: 5px solid rgb(0, 0, 0); */
     border-radius: 10px;
     padding: 3px;
@@ -90,15 +106,19 @@ body {
     width: 600px;
     height: 600px;
 
-    margin: 0 auto;
-    /* center the board */
-    display: flex;
-    flex-wrap: wrap;
+    margin: 0 auto; /* center the board */
+    display: flex; 
+    flex-wrap: wrap; 
     justify-content: center;
     align-content: center;
 
     /* border: 5px solid rgb(0, 0, 0); */
+<<<<<<< HEAD
+    background-color: rgba(0, 0, 0, 0.364);
+    border : 10px solid #00000088;
+=======
     background-color: rgba(0, 0, 0, 0.691);
+>>>>>>> andy
 }
 
 #highScore {
@@ -108,11 +128,18 @@ body {
 
 #scoreTable {
     font-family: "Squid";
+<<<<<<< HEAD
+    /* change the background color of the element from pastel orange to pastel grey */
+    background: vertical-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+    color: rgb(0, 0, 0);
+    grid-column: 1 / 2;
+=======
     /* change the background color of the element */
     background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 100%);
 
     /* put it in the third column and row 2 */
     grid-column: 3 / 3;
+>>>>>>> andy
     grid-row: 2 / 5;
     margin: 0 auto;
     margin-top: 20px;
@@ -120,7 +147,7 @@ body {
     width: 400px;
     border-radius: 10px;
     background-color: #cdc1b500;
-    border: 10px solid #000000;
+    border: 10px solid #00000088;
     justify-content: space-around;
     align-items: center;
 }
@@ -138,9 +165,9 @@ body {
     font-size: 20px;
     font-weight: bold;
 
-    background-color: #8f7a66;
+    background-color: #302c28b7;
     color: #f9f6f2;
-    border: 2px solid #776e65;
+    border: 2px solid #0a0a0a;
     border-radius: 10px;
 
     cursor: pointer;
@@ -183,7 +210,11 @@ body {
     width: 135px;
     /* account for border 5px */
     height: 135px;
+<<<<<<< HEAD
+    border: 4px solid #000000;
+=======
     border: 3px solid #e7e7e700;
+>>>>>>> andy
     margin: 1px;
     border-radius: 5px;
     font-size: 50px;
@@ -191,6 +222,21 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+<<<<<<< HEAD
+    background-color: #18181800;
+}
+
+.x2 {
+    background-color: #f1a285;
+    /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
+    color: #321b1b;
+}
+
+.x4 {
+    background-color: #75d1f5;
+    /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
+    color: #321b1b;
+=======
     background-color: #ede4e400;
 }
 
@@ -200,6 +246,7 @@ body {
 
 .x4 {
 
+>>>>>>> andy
 }
 
 .x8 {
@@ -207,7 +254,13 @@ body {
 }
 
 .x16 {
+<<<<<<< HEAD
+    background-color:#1368aa;
+    /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
+    color: white;
+=======
 
+>>>>>>> andy
 }
 
 .x32 {
@@ -223,10 +276,45 @@ body {
 }
 
 .x256 {
+<<<<<<< HEAD
+    background-color: #cb5d53;
+=======
+>>>>>>> andy
 
 }
 
 .x512 {
+<<<<<<< HEAD
+    background-color: #ce2d27;
+    /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
+    color: white;
+}
+
+.x1024 {
+    background-color: #d34858;
+    /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
+    color: white;
+}
+
+.x2048 {
+    background-color: #b13732;
+    /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
+    color: white;
+}
+
+.x4096 {
+    background-color: #cf1c1c;
+    /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
+    color: white;
+}
+
+.x8192 {
+    background-color: #982f2b;
+    /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
+    color: white;
+}
+
+=======
   
 }
 
@@ -251,3 +339,4 @@ body {
     
 
 }
+>>>>>>> andy
