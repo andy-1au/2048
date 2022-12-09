@@ -179,8 +179,9 @@ body {
 .tile{
     width: 135px; /* account for border 5px */
     height: 135px; 
-    /* border: 2px solid rgb(235,33,46); */
-    border: 4px solid darkgrey;
+    border: 2px solid rgb(235,33,46);
+    box-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 6px #fff, 0 0 8px #ff0000, 0 0 10px #ff0000, 0 0 12px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000;
+    /* border: 4px solid darkgrey; */
     margin: 1px;
     border-radius: 10px;
     font-size: 50px;
