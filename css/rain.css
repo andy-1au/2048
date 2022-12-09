@@ -1,32 +1,54 @@
 @font-face {
-    font-family: "Squid";
-    src: url("/fonts/animeace2_bld.ttf");
+    font-family: 'Squid';
+    src: url("/fonts/Game Of Squids.ttf");
+}
+
+@font-face {
+    font-family: 'LemonMilk';
+    src: url("/fonts/LEMONMILK-Bold.otf");
+}
+
+@font-face {
+    font-family: 'ClearSans';
+    src: url("/fonts/ClearSans-Bold.ttf");
+}
+
+@font-face {
+    font-family: 'StarWars';
+    src: url("/fonts/Starjedi.ttf");
 }
 
 body {
-    font-family: 'Times New Roman', 'Calibri', Arial, sans-serif;
+    font-family: 'LemonMilk', 'ClearSans', 'Times New Roman', 'Calibri';
     /* font-weight: 300; */
     text-align: center;
-    background-color: rgb(255, 250, 250);
+    /* background-color: rgb(255, 250, 250); */
 
     margin: 0;
     padding: 0;
-
-    background-image: url();
-    background-size: cover;
+    color: white;
+    /* background-image: url('https://youtu.be/t3WXTDhJezc'); */
+    background-size: 100%;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    height:100%;
+    width:100%;
 }
 
 #video {
+    z-index: -1;
     position: fixed;
-    right: 0;
-    bottom: 0;
+    top: 0;
+    left: 0;
     min-width: 100%;
     min-height: 100%;
-    z-index: -100;
+    width: auto;
+    height: auto;
+    
 }
 
 #container {
-    /* adjust the grid size to the screen size */
+    /* make a grid with 2 rows and 3 cols */
     display: grid;
     width: 1400px;
     height: 700px;
@@ -46,18 +68,80 @@ body {
 }
 
 #title {
-    font-family: "Squid";
+    font-family: "LemonMilk";
     font-size: 25px;
+    color: white;
+    /* drop shadow */
+    text-shadow: 2px 2px 4px #000000;
     grid-column: 1 / span 3;
     grid-row: 1 / span 1;
+}
+
+#r0 {
+    font-size: 50px;
+}
+
+#board {
+
+    /* display this on the container grid in the second row and spans the left 2 columns */
+    grid-column: 2 / 2;
+    grid-row: 2 / 4;
+    
+    /* border: 5px solid rgb(0, 0, 0); */
+    border-radius: 10px;
+    padding: 3px;
+
+    width: 675px;
+    height: 675px;
+
+    margin: 0 auto; /* center the board */
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-content: center;
+
+    /* border: 5px solid rgb(0, 0, 0); */
+    background-color: rgba(1, 11, 58, 0.3);
+}
+
+#highScore {
+    font-family: "LemonMilk";
+    font-size: 20px;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+    border: 6px solid white;
+    border-radius: 10px;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+#scoreTable {
+    font-family:"LemonMilk";
+    color: white;
+
+    /* vertical gradient from blue red yellow */
+        /* make the background linear gradient black and white*/
+    background: rgba(0,0,0,0.5);
+    grid-column: 1 / 2;
+    grid-row: 2 / 5;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 250px;
+    /* border-radius: 10px;
+    border: 6px solid #ffffff; */
+    justify-content: space-around;
+    align-items: center;
+}
+
+#belowBoard {
+    grid-column: 2 / 3;
+    grid-row: 4 / 4;
 }
 
 #reset {
     grid-column: 1 / span 1;
     grid-row: 2 / span 1;
-}
 
-#sound {
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -65,9 +149,9 @@ body {
     font-size: 20px;
     font-weight: bold;
 
-    background-color: #ea7a12b0;
-    color: #f9f6f2;
-    border: 2px solid #000000;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: 2px solid white;
     border-radius: 10px;
 
     cursor: pointer;
@@ -81,72 +165,15 @@ body {
     font-size: 20px;
     font-weight: bold;
 
-    background-color: #e6dddd9b;
-    color: #000000;
-    border: 2px solid #000000;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: 2px solid white;
     border-radius: 10px;
 
     cursor: pointer;
 }
 
-#r0 {
-    font-size: 50px;
-}
-
-#board {
-
-    /* display this on the container grid in the second row and spans the left 2 columns */
-    grid-column: 2 / 2;
-    grid-row: 2 / 4;
-
-    /* border: 5px solid rgb(0, 0, 0); */
-    border-radius: 10px;
-    padding: 3px;
-
-    width: 600px;
-    height: 600px;
-
-    margin: 0 auto;
-    /* center the board */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-
-    /* border: 5px solid rgb(0, 0, 0); */
-    background-color: rgba(0, 0, 0, 0.364);
-    border : 10px solid #00000088;
-}
-
-#highScore {
-    font-family: Squid;
-    font-size: 20px;
-}
-
-#scoreTable {
-    font-family: "Squid";
-    /* change the background color of the element */
-    background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 100%);
-
-    grid-column: 1 / 2;
-    grid-row: 2 / 5;
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 400px;
-    border-radius: 10px;
-    background-color: #cdc1b500;
-    border: 10px solid #00000088;
-    justify-content: space-around;
-    align-items: center;
-}
-
-#belowBoard {
-    grid-column: 2 / 3;
-    grid-row: 4 / 4;
-}
-
-#reset {
+#sound {
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -154,51 +181,37 @@ body {
     font-size: 20px;
     font-weight: bold;
 
-    background-color: #302c28b7;
-    color: #f9f6f2;
-    border: 2px solid #0a0a0a;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: 2px solid white;
     border-radius: 10px;
 
     cursor: pointer;
 }
 
 #splash {
-    cursor: pointer;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 50px;
-    color: white;
-    font-family: "Squid";
+    font-family: "LemonMilk";
+    font-size : 50px;
+    color : white;
+
+    cursor : pointer;
+    position : absolute;
+    top : 0;
+    left : 0;
+    width : 100%;
+    height : 100%;
+    z-index : 100;
+    background-color : rgba(0,0,0,0.5);
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    
 }
 
-#gameOver {
-    /* stack the game over element over the board location in grid */
-    position: absolute;
-    grid-column: 2 / 2;
-    grid-row: 2 / 4;
-    /* border: 5px solid rgb(0, 0, 0); */
-    border-radius: 10px;
-    padding: 3px;
-
-    width: 600px;
-    height: 500px;
-
-    margin: 0 auto;
-}
-
-.tile {
-    width: 135px;
-    /* account for border 5px */
-    height: 135px;
-    border: 4px solid #000000;
+.tile{
+    width: 135px; /* account for border 5px */
+    height: 135px; 
+    border: 12px solid #181818aa;
     margin: 1px;
     border-radius: 5px;
     font-size: 50px;
@@ -206,86 +219,87 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #18181800;
+    background-color: rgba(1, 11, 58, 0.3);
 }
 
 .x2 {
-    background-color: #f1a285;
+    background-color: #fedfd4;
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: #321b1b;
 }
 
 .x4 {
-    background-color: #75d1f5;
+    background-color: #9dcee2dd;
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: #321b1b;
 }
 
 .x8 {
-    background-color: #4091c9;
+    background-color: #4091c9dd;
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: #ffffff;
 }
 
 .x16 {
-    background-color: #1368aa;
+    background-color:#1368aadd;
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: white;
 }
 
 .x32 {
-    background-color: #063f88;
+    background-color: #063f88dd;
     /* background: linear-gradient(40deg, rgb(34, 196, 50) 0%, rgb(0, 255, 8) 50%, rgb(34, 196, 61) 100%); */
     color: white;
 }
 
 .x64 {
-    background-color: #f29479;
+    background-color: #f29479dd;
 
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: #321b1b;
 }
 
 .x128 {
-    background-color: #f26a4f;
+    background-color: #f26a4fdd;
 
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: #321b1b;
 }
 
 .x256 {
-    background-color: #cb5d53;
+    background-color: #ef3c2ddd;
 
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: white;
 }
 
 .x512 {
-    background-color: #ce2d27;
+    background-color: #cb1b16dd;
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: white;
 }
 
 .x1024 {
-    background-color: #d34858;
+    background-color: #65010cdd;
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: white;
 }
 
 .x2048 {
-    background-color: #b13732;
+    background-color: #cb1b16dd;
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: white;
 }
 
 .x4096 {
-    background-color: #cf1c1c;
+    background-color: #cb1b16dd;
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: white;
 }
 
 .x8192 {
-    background-color: #982f2b;
+    background-color: #cb1b16dd;
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: white;
 }
+
