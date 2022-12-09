@@ -3,7 +3,8 @@
 // Audio Objects
 // var whoosh = new Audio('audio/discord-notification.mp3');
 // var whoosh = new Audio('audio/fighter.mp3')
-var whoosh = new Audio('audio/cannard.mp3');
+// var whoosh = new Audio('audio/cannard.mp3');
+var whoosh = new Audio('audio/droplet.mp3');
 whoosh.playbackRate = 4;
 
 
