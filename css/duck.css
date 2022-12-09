@@ -65,9 +65,25 @@ body {
     font-size: 20px;
     font-weight: bold;
 
-    background-color: #8f7a66;
+    background-color: #ea7a12b0;
     color: #f9f6f2;
-    border: 2px solid #776e65;
+    border: 2px solid #000000;
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+#theme {
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    background-color: #e6e2de9b;
+    color: #f9f6f2;
+    border: 2px solid #000000;
     border-radius: 10px;
 
     cursor: pointer;
@@ -98,7 +114,8 @@ body {
     align-content: center;
 
     /* border: 5px solid rgb(0, 0, 0); */
-    background-color: rgb(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.364);
+    border : 10px solid #00000088;
 }
 
 #highScore {
@@ -119,7 +136,7 @@ body {
     width: 400px;
     border-radius: 10px;
     background-color: #cdc1b500;
-    border: 10px solid #000000;
+    border: 10px solid #00000088;
     justify-content: space-around;
     align-items: center;
 }
@@ -137,9 +154,9 @@ body {
     font-size: 20px;
     font-weight: bold;
 
-    background-color: #8f7a66;
+    background-color: #302c28b7;
     color: #f9f6f2;
-    border: 2px solid #776e65;
+    border: 2px solid #0a0a0a;
     border-radius: 10px;
 
     cursor: pointer;
@@ -181,7 +198,7 @@ body {
     width: 135px;
     /* account for border 5px */
     height: 135px;
-    border: 2px solid #e7dfdf;
+    border: 4px solid #000000;
     margin: 1px;
     border-radius: 5px;
     font-size: 50px;
@@ -189,17 +206,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #181818;
+    background-color: #18181800;
 }
 
 .x2 {
-    background-color: #fedfd4;
+    background-color: #f1a285;
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: #321b1b;
 }
 
 .x4 {
-    background-color: #9dcee2;
+    background-color: #75d1f5;
     /* background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(159, 154, 154) 50%, rgba(0, 0, 0, 0.5) 100%); */
     color: #321b1b;
 }

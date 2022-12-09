@@ -28,6 +28,11 @@ var cols = 4;
 
 var overPopup = false;
 
+function hidePopup() {
+    document.getElementById("splash").style.display = "none";
+    overPopup = false;
+}
+
 // with high score table
 
 window.onload = function () {
@@ -38,7 +43,7 @@ window.onload = function () {
 
     //add click event listener to the splash screen
     document.getElementById("splash").onclick = function () {
-        document.getElementById("splash").style.display = "none";
+        hidePopup();
         song.play();
     }
 
@@ -56,7 +61,7 @@ window.onload = function () {
 
     //add click event listener to the splash screen
     document.getElementById("splash").onclick = function () {
-        document.getElementById("splash").style.display = "none";
+        hidePopup();
         // hide all htmls aside from the splash scrren and the game
     }
 
@@ -144,10 +149,10 @@ window.onload = function () {
     function newGame() {
         board =
             [
-                [2, 4, 2, 4],
-                [4, 2, 4, 2],
-                [2, 4, 2, 4],
-                [4, 2, 4, 2]
+                [0, 0, 0, 0],
+                [0, 0, 0, 0],
+                [0, 0, 0, 0],
+                [0, 0, 0, 0]
             ]
 
         /* 
@@ -286,6 +291,7 @@ window.onload = function () {
 
     document.addEventListener("keyup", (e) => {
         // console.log(overPopup);
+        hidePopup();
 
         // Arrow Keys
         if (e.code == "ArrowLeft") {
