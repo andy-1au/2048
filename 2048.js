@@ -2,13 +2,16 @@
 
 // Audio Objects
 // var whoosh = new Audio('audio/discord-notification.mp3');
-var whoosh = new Audio('audio/fighter.mp3')
+// var whoosh = new Audio('audio/fighter.mp3')
+var whoosh = new Audio('audio/cannard.mp3');
 whoosh.playbackRate = 4;
 
 
 // var song = new Audio("audio/bg-music.mp3");
-var song = new Audio("audio/sw-fullsong.mp3");
+// var song = new Audio("audio/sw-fullsong.mp3");
+var song=new Audio("audio/squid.mp3");
 var gameoverSound = new Audio('audio/gameover-sound.mp3');
+gameoverSound.volume = 1;
 var newgameSound = new Audio('audio/newgame.mp3');
 var clickSound = new Audio('audio/click.mp3');
 
@@ -58,6 +61,7 @@ window.onload = function () {
         
         if(!song.muted) {
             song.muted = false;
+            playAudio(song);
         } else {
             song.muted = true;
         }

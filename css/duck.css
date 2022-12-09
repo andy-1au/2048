@@ -109,7 +109,7 @@ body {
     font-family: "Squid";
     /* change the background color of the element */
     background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 100%);
-
+    color: white;
     grid-column: 1 / 2;
     grid-row: 2 / 5;
     margin: 0 auto;
