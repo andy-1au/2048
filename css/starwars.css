@@ -65,7 +65,9 @@ body {
 #title {
     font-family: "StarWars";
     font-size: 25px;
-    color: white;
+    color: rgb(230, 41, 41);
+    align-items: center;
+
 
     grid-column: 1 / span 3;
     grid-row: 1 / span 1;
@@ -101,16 +103,15 @@ body {
 #highScore {
     font-family: "StarWars";
     font-size: 20px;
-    color: white;
+    color: rgb(230, 41, 41);
 }
 
 #scoreTable {
     font-family:"StarWars";
-    color: white;
+    color: rgb(230, 41, 41);
 
-    /* vertical gradient from blue red yellow */
-        /* make the background linear gradient black and white*/
-    background: rgba(0,0,0,0.5);
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(230, 41, 41, 0.5));
+    
     grid-column: 1 / 2;
     grid-row: 2 / 5;
     margin: 0 auto;
@@ -136,10 +137,10 @@ body {
     margin-top: 20px;
     margin-bottom: 20px;
 
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
 
-    background: rgba(0,0,0,0.5);
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(230, 41, 41, 0.5));
     color: white;
     border: 2px solid white;
     border-radius: 10px;
@@ -152,10 +153,10 @@ body {
     margin-top: 20px;
     margin-bottom: 20px;
 
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
 
-    background: rgba(0,0,0,0.5);
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(230, 41, 41, 0.5));
     color: white;
     border: 2px solid white;
     border-radius: 10px;
@@ -168,10 +169,10 @@ body {
     margin-top: 20px;
     margin-bottom: 20px;
 
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
 
-    background: rgba(0,0,0,0.5);
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(230, 41, 41, 0.5));
     color: white;
     border: 2px solid white;
     border-radius: 10px;
@@ -179,10 +180,18 @@ body {
     cursor: pointer;
 }
 
+#reset:hover, #theme:hover, #sound:hover {
+    background: red
+}
+
+
+    
+
+
 #splash {
     font-family: "StarWars";
     font-size : 50px;
-    color : white;
+    color : rgb(230, 41, 41);
 
     cursor : pointer;
     position : absolute;
