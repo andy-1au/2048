@@ -31,6 +31,7 @@ body {
 }
 
 #video {
+    src: "css/starwars.css";
     z-index: -1;
     position: fixed;
     top: 0;
@@ -64,10 +65,8 @@ body {
 
 #title {
     font-family: "StarWars";
-    font-size: 25px;
-    color: rgb(230, 41, 41);
-    align-items: center;
-
+    font-size: 30px;
+    color: lightgreen;
 
     grid-column: 1 / span 3;
     grid-row: 1 / span 1;
@@ -78,7 +77,6 @@ body {
 }
 
 #board {
-
     /* display this on the container grid in the second row and spans the left 2 columns */
     grid-column: 2 / 2;
     grid-row: 2 / 4;
@@ -97,21 +95,20 @@ body {
     align-content: center;
 
     /* border: 5px solid rgb(0, 0, 0); */
-    background-color: rgb(0,0,0,0.9);
+    background-color: rgb(0,0,0,0.4);
 }
 
 #highScore {
     font-family: "StarWars";
     font-size: 20px;
-    color: rgb(230, 41, 41);
+    color: lightgreen
 }
 
 #scoreTable {
     font-family:"StarWars";
-    color: rgb(230, 41, 41);
+    color: lightgreen;
+    background: linear-gradient(black, rgba(144, 238, 144, 0.5));
 
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(230, 41, 41, 0.5));
-    
     grid-column: 1 / 2;
     grid-row: 2 / 5;
     margin: 0 auto;
@@ -129,69 +126,32 @@ body {
     grid-row: 4 / 4;
 }
 
-#reset {
-    grid-column: 1 / span 1;
-    grid-row: 2 / span 1;
-
+#reset, #sound, #theme {
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
 
-    font-size: 30px;
-    font-weight: bold;
+    font-family: "StarWars";
+    font-size: 20px;
+    font-weight: regular;
 
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(230, 41, 41, 0.5));
-    color: white;
-    border: 2px solid white;
+    background: linear-gradient(black, rgba(144, 238, 144, 0.5));
+    color: lightgreen;
+    border: 3px solid white;
     border-radius: 10px;
 
     cursor: pointer;
 }
 
-#theme {
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-
-    font-size: 30px;
-    font-weight: bold;
-
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(230, 41, 41, 0.5));
-    color: white;
-    border: 2px solid white;
-    border-radius: 10px;
-
-    cursor: pointer;
+#reset:hover, #sound:hover, #theme:hover {
+    background: linear-gradient(rgba(144, 238, 144, 0.5), #000000);
+    color: lightgreen;
 }
-
-#sound {
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-
-    font-size: 30px;
-    font-weight: bold;
-
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(230, 41, 41, 0.5));
-    color: white;
-    border: 2px solid white;
-    border-radius: 10px;
-
-    cursor: pointer;
-}
-
-#reset:hover, #theme:hover, #sound:hover {
-    background: red
-}
-
-
-    
-
 
 #splash {
     font-family: "StarWars";
     font-size : 50px;
-    color : rgb(230, 41, 41);
+    color : lightgreen;
 
     cursor : pointer;
     position : absolute;
@@ -204,13 +164,13 @@ body {
     display : flex;
     justify-content : center;
     align-items : center;
-    
 }
 
 .tile{
     width: 135px; /* account for border 5px */
     height: 135px; 
-    border: 2px solid #e7dfdf;
+    /* border: 2px solid rgb(235,33,46); */
+    border: 4px solid lightgreen;
     margin: 1px;
     border-radius: 5px;
     font-size: 50px;
@@ -218,7 +178,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #181818;
+    background-color: #18181822;
 }
 
 .x2 {
