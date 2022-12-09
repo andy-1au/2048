@@ -63,8 +63,8 @@ window.onload = function () {
         gameoverSound.muted = true;
         //play the new game sound
         playAudio(newgameSound);
-        
-        if(!song.muted) {
+
+        if(whoosh.muted == false) {
             song.muted = false;
             whoosh.muted = false;
             playAudio(song);
@@ -172,10 +172,10 @@ function resetThemeSounds(swipeSound, themeSong) {
 function newGame() {
     board =
         [
-            [0, 0, 0, 0],
-            [0, 0, 0, 0],
-            [0, 0, 0, 0],
-            [0, 0, 0, 0]
+            [2, 4, 2, 4],
+            [4, 2, 4, 2],
+            [2, 4, 2, 4],
+            [4, 2, 4, 2]
         ]
 
     /* 
