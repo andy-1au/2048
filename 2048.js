@@ -2,14 +2,17 @@
 
 // Audio Objects
 // var whoosh = new Audio('audio/discord-notification.mp3');
+var whoosh = new Audio('audio/woodSound.mp3');
 // var whoosh = new Audio('audio/fighter.mp3')
-var whoosh = new Audio('audio/cannard.mp3');
+// var whoosh = new Audio('audio/cannard.mp3');
+
 whoosh.playbackRate = 4;
 
 
 // var song = new Audio("audio/bg-music.mp3");
 // var song = new Audio("audio/sw-fullsong.mp3");
-var song=new Audio("audio/squid.mp3");
+// var song=new Audio("audio/squid.mp3");
+var song = new Audio("audio/rain-sfx.mp3");
 var gameoverSound = new Audio('audio/gameover-sound.mp3');
 gameoverSound.volume = 1;
 var newgameSound = new Audio('audio/newgame.mp3');
@@ -123,10 +126,11 @@ function changeTheme() {
         document.getElementById("style").setAttribute("href", "css/duck.css");
         document.getElementById("video").setAttribute("src", "background/rightducky.mp4");
     } else if (currentTheme == "css/duck.css") {
+        document.getElementById("style").setAttribute("href", "css/rain.css");
+        document.getElementById("video").setAttribute("src", "background/rain.mp4");
+    } else if (currentTheme == "css/rain.css") {
         document.getElementById("style").setAttribute("href", "css/starwars.css");
         document.getElementById("video").setAttribute("src", "background/hyperloop.mp4");
-    } else if (currentTheme == "css/replaceme.css") {
-        // TODO
     }
 }
 
