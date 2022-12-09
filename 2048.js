@@ -1,17 +1,19 @@
 //Main Branch
 
 // Audio Objects
-// var whoosh = new Audio('audio/discord-notification.mp3');
 var whoosh = new Audio('audio/woodSound.mp3');
-// var whoosh = new Audio('audio/fighter.mp3')
-// var whoosh = new Audio('audio/cannard.mp3');
+var swipeSoundStarwars = new Audio('audio/fighter.mp3')
+var swipeSoundDuck = new Audio('audio/cannard.mp3');
+var swipeSoundRain = new Audio('audio/woodSound.mp3');
 
 whoosh.playbackRate = 4;
 
 
-// var song = new Audio("audio/bg-music.mp3");
-// var song = new Audio("audio/sw-fullsong.mp3");
-// var song=new Audio("audio/squid.mp3");
+var songStarwars = new Audio("audio/sw-fullsong.mp3");
+songStarwars.volume = 0.5;
+var songDuck = new Audio("audio/squid.mp3");
+songDuck.volume = 0.5;
+var songRain = new Audio("audio/rain-sfx.mp3");
 var song = new Audio("audio/rain-sfx.mp3");
 var gameoverSound = new Audio('audio/gameover-sound.mp3');
 gameoverSound.volume = 1;
@@ -64,9 +66,11 @@ window.onload = function () {
         
         if(!song.muted) {
             song.muted = false;
+            whoosh.muted = false;
             playAudio(song);
         } else {
             song.muted = true;
+            whoosh.muted = true;
         }
     }
 
@@ -75,10 +79,10 @@ window.onload = function () {
         document.getElementById("splash").style.display = "none";
     }
 
-    // play the background song when the user clicks anywhere on the page
-    document.getElementById("board").onclick = function () {
-        song.play();
-    }
+    // // play the background song when the user clicks anywhere on the page
+    // document.getElementById("board").onclick = function () {
+    //     song.play();
+    // }
 
     // if user clicks the sound button, mute or unmute the sound
     document.getElementById("sound").onclick = function () {
@@ -125,23 +129,54 @@ function changeTheme() {
     if (currentTheme == "css/starwars.css") {
         document.getElementById("style").setAttribute("href", "css/duck.css");
         document.getElementById("video").setAttribute("src", "background/rightducky.mp4");
+        resetThemeSounds(swipeSoundDuck, songDuck);
     } else if (currentTheme == "css/duck.css") {
         document.getElementById("style").setAttribute("href", "css/rain.css");
         document.getElementById("video").setAttribute("src", "background/rain.mp4");
+        resetThemeSounds(swipeSoundRain, songRain);
     } else if (currentTheme == "css/rain.css") {
         document.getElementById("style").setAttribute("href", "css/starwars.css");
         document.getElementById("video").setAttribute("src", "background/hyperloop.mp4");
+        resetThemeSounds(swipeSoundStarwars, songStarwars);
+    }
+
+}
+
+function resetThemeSounds(swipeSound, themeSong) {
+    // is sound muted?
+    let soundMuted = whoosh.muted;
+
+    // reset the swipe sound
+    whoosh.currentTime = 0;
+    whoosh.muted = true;
+    // reset the theme song
+    song.currentTime = 0;
+    song.muted = true;
+    // now switch the swipe sound and theme song
+    whoosh = swipeSound;
+    song = themeSong;
+
+    // play the new theme song
+    song.play();
+
+    // if sound is off, mute the new sounds
+    if (soundMuted) {
+        whoosh.muted = true;
+        song.muted = true;
+    } else {
+        whoosh.muted = false;
+        song.muted = false;
     }
 }
 
-    function newGame() {
-        board =
-            [
-                [0, 0, 0, 0],
-                [0, 0, 0, 0],
-                [0, 0, 0, 0],
-                [0, 0, 0, 0]
-            ]
+function newGame() {
+    board =
+        [
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0]
+        ]
 
     /* 
     [2, 4, 8, 16],
@@ -279,7 +314,12 @@ function updateTile(tile, num) {
 
 document.addEventListener("keyup", (e) => {
     // console.log(overPopup);
-
+    document.getElementById("splash").style.display = "none"; // hide the splash screen
+    // play the song if it's not already playing
+    if (song.paused) {
+        song.play();
+    }
+    
     // Arrow Keys
     if (e.code == "ArrowLeft") {
         if (slideLeft()) {
