@@ -137,10 +137,10 @@ function changeTheme() {
     function newGame() {
         board =
             [
-                [0, 0, 0, 0],
-                [0, 0, 0, 0],
-                [0, 0, 0, 0],
-                [0, 0, 0, 0]
+                [2, 4, 2, 4],
+                [4, 2, 4, 2],
+                [2, 4, 2, 4],
+                [4, 2, 4, 2]
             ]
 
     /* 
@@ -182,7 +182,7 @@ function resetBoard() {
     }
 
     //remove the game over popup
-    let popup = document.getElementById("gameover");
+    let popup = document.getElementById("gameOver");
     if (popup) {
         popup.remove();
     }
@@ -323,19 +323,10 @@ document.addEventListener("keyup", (e) => {
 function gameOverPopup() {
     // create a new img element inside the boarder div
     var gameOver = document.createElement("img");
-    gameOver.src = "gif/gameover.gif";
-    gameOver.id = "gameover";
-    gameOver.style.position = "absolute";
-    // center the gamover popup
-    gameOver.style.left = "50%";
-    gameOver.style.top = "50%";
-    gameOver.style.transform = "translate(-50%, -50%)";
+    gameOver.src = "gif/gameovert.gif";
+    gameOver.id = "gameOver";
 
-    gameOver.style.zIndex = "1"; // make sure it's on top of the board
-
-
-
-    document.getElementById("title").append(gameOver); //append to title div so it's centered above the board
+    document.getElementById("board").append(gameOver); //append to title div so it's centered above the board
 
     gameOver.animate( //animations 
         [
