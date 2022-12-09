@@ -102,16 +102,13 @@ body {
 #highScore {
     font-family: "StarWars";
     font-size: 20px;
-    /* color: lightgreen */
     color: red;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
 }
 
 #scoreTable {
     font-family:"StarWars";
-    /* color: lightgreen; */
     color: red;
-    /* text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000; */
     background: linear-gradient(black, rgb(255, 0, 0, 0.5));
 
     grid-column: 1 / 2;
@@ -119,7 +116,7 @@ body {
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
-    width: 400px;
+    width: 250px;
     border-radius: 10px;
     border: 6px solid white;
     justify-content: space-around;
@@ -178,7 +175,7 @@ body {
     width: 135px; /* account for border 5px */
     height: 135px; 
     /* border: 2px solid rgb(235,33,46); */
-    border: 4px solid white;
+    border: 4px solid darkgrey;
     margin: 1px;
     border-radius: 10px;
     font-size: 50px;
