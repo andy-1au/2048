@@ -31,7 +31,6 @@ body {
 }
 
 #video {
-    src: "css/starwars.css";
     z-index: -1;
     position: fixed;
     top: 0;
@@ -39,8 +38,7 @@ body {
     min-width: 100%;
     min-height: 100%;
     width: auto;
-    height: auto;
-    
+    height: auto; 
 }
 
 #container {
@@ -66,7 +64,9 @@ body {
 #title {
     font-family: "StarWars";
     font-size: 30px;
-    color: lightgreen;
+    color: red;
+    /* make the text neon, but still readable */
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
 
     grid-column: 1 / span 3;
     grid-row: 1 / span 1;
@@ -101,13 +101,17 @@ body {
 #highScore {
     font-family: "StarWars";
     font-size: 20px;
-    color: lightgreen
+    /* color: lightgreen */
+    color: red;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
 }
 
 #scoreTable {
     font-family:"StarWars";
-    color: lightgreen;
-    background: linear-gradient(black, rgba(144, 238, 144, 0.5));
+    /* color: lightgreen; */
+    color: red;
+    /* text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000; */
+    background: linear-gradient(black, rgb(255, 0, 0, 0.5));
 
     grid-column: 1 / 2;
     grid-row: 2 / 5;
@@ -116,7 +120,7 @@ body {
     margin-bottom: 20px;
     width: 400px;
     border-radius: 10px;
-    border: 6px solid #ffffff;
+    border: 6px solid white;
     justify-content: space-around;
     align-items: center;
 }
@@ -135,23 +139,26 @@ body {
     font-size: 20px;
     font-weight: regular;
 
-    background: linear-gradient(black, rgba(144, 238, 144, 0.5));
-    color: lightgreen;
+    background: linear-gradient(black, rgba(255, 0, 0, 0.5));
+    color: white;
     border: 3px solid white;
+    /* make the border glow */
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
     border-radius: 10px;
 
     cursor: pointer;
 }
 
 #reset:hover, #sound:hover, #theme:hover {
-    background: linear-gradient(rgba(144, 238, 144, 0.5), #000000);
-    color: lightgreen;
+    background: linear-gradient(rgba(255, 0, 0, 0.5), #000000);
+    color: red;
 }
 
 #splash {
     font-family: "StarWars";
     font-size : 50px;
-    color : lightgreen;
+    color : red;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
 
     cursor : pointer;
     position : absolute;
@@ -170,9 +177,9 @@ body {
     width: 135px; /* account for border 5px */
     height: 135px; 
     /* border: 2px solid rgb(235,33,46); */
-    border: 4px solid lightgreen;
+    border: 4px solid white;
     margin: 1px;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 50px;
     font-weight: bold;
     display: flex;
