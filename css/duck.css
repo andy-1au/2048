@@ -1,5 +1,5 @@
 @font-face {
-    font-family: "Squid";
+    font-family: "Duck";
     src: url("/fonts/animeace2_bld.ttf");
 }
 
@@ -46,7 +46,7 @@ body {
 }
 
 #title {
-    font-family: "Squid";
+    font-family: "Duck";
     font-size: 25px;
     grid-column: 1 / span 3;
     grid-row: 1 / span 1;
@@ -58,7 +58,7 @@ body {
 }
 
 #sound {
-    font-family: 'Squid';
+    font-family: 'Duck';
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -75,7 +75,7 @@ body {
 }
 
 #theme {
-    font-family: 'Squid';
+    font-family: 'Duck';
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -121,12 +121,12 @@ body {
 }
 
 #highScore {
-    font-family: Squid;
+    font-family: Duck;
     font-size: 20px;
 }
 
 #scoreTable {
-    font-family: "Squid";
+    font-family: "Duck";
     /* change the background color of the element */
     background: linear-gradient(40deg, rgba(0, 0, 0, 0.5) 0%, rgb(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 100%);
 
@@ -149,7 +149,7 @@ body {
 }
 
 #reset {
-    font-family: 'Squid';
+    font-family: 'Duck';
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -179,7 +179,7 @@ body {
     align-items: center;
     font-size: 50px;
     color: white;
-    font-family: "Squid";
+    font-family: "Duck";
 }
 
 #gameOver {
@@ -198,7 +198,7 @@ body {
 }
 
 .tile {
-    font-family: 'Squid';
+    font-family: 'Duck';
     width: 135px;
     /* account for border 5px */
     height: 135px;
