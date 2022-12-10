@@ -177,13 +177,6 @@ function newGame() {
             [0, 0, 0, 0]
         ]
 
-    /* 
-    [2, 4, 8, 16],
-    [32, 64, 128, 256],
-    [512, 1024, 0, 0],
-    [0, 0, 0, 0] 
-    */
-
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
             let tile = document.createElement('div');
