@@ -207,13 +207,16 @@ function resetBoard() {
             updateTile(tile, num);
         }
     }
+    generateTile();
+    generateTile();
 
     //remove the game over popup
     let popup = document.getElementById("gameOver");
-    popup.remove();
-
-    generateTile();
-    generateTile();
+    
+    // if the popup exists, remove it
+    if (popup) {
+        popup.remove();
+    }
 }
 
 function isGameOver() {
