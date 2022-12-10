@@ -171,10 +171,10 @@ function resetThemeSounds(swipeSound, themeSong) {
 function newGame() {
     board =
         [
-            [2, 4, 2, 4],
-            [4, 2, 4, 2],
-            [2, 4, 2, 4],
-            [4, 2, 4, 2]
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0]
         ]
 
     /* 
